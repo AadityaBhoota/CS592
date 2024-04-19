@@ -10,34 +10,36 @@ anthropic_client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 
 
 async def prompt_openai(system_prompt, prompt, logprobs=None, top_logprobs=None, max_tokens=None, num_responses=1):
-    completion = await openai_client.chat.completions.create(
-        model="gpt-3.5-turbo-0125",
-        messages=[
-            {"role": "system",
-             "content": system_prompt},
-            {"role": "user",
-             "content": prompt}
-        ],
-        logprobs=logprobs,
-        top_logprobs=top_logprobs,
-        max_tokens=max_tokens,
-        n=num_responses
-    )
-    return completion
+    # completion = await openai_client.chat.completions.create(
+    #     model="gpt-3.5-turbo-0125",
+    #     messages=[
+    #         {"role": "system",
+    #          "content": system_prompt},
+    #         {"role": "user",
+    #          "content": prompt}
+    #     ],
+    #     logprobs=logprobs,
+    #     top_logprobs=top_logprobs,
+    #     max_tokens=max_tokens,
+    #     n=num_responses
+    # )
+    # return completion
+    pass
 
 
 async def prompt_anthropic(system_prompt, prompt, max_tokens=4096, temperature=1.0):
-    message = await anthropic_client.messages.create(
-        model="claude-3-haiku-20240307",
-        max_tokens=max_tokens,
-        temperature=temperature,
-        system=system_prompt,
-        messages=[
-            {"role": "user", "content": prompt}
-        ]
-    )
-
-    return message
+    # message = await anthropic_client.messages.create(
+    #     model="claude-3-haiku-20240307",
+    #     max_tokens=max_tokens,
+    #     temperature=temperature,
+    #     system=system_prompt,
+    #     messages=[
+    #         {"role": "user", "content": prompt}
+    #     ]
+    # )
+    #
+    # return message
+    pass
 
 
 async def planning_stage(model, planning_prompts, problem):
@@ -152,6 +154,7 @@ async def code_refine_stage(model, problem, code, code_evaluation_prompts, code_
                 new_code = response.contect
 
             curr_code = new_code
+            num_iterations += 1
         prev_sections.append(curr_code)
 
     return "\n".join(prev_sections)
