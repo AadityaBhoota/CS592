@@ -80,7 +80,8 @@ def is_positive(string):
 
 
 # Each prompt parameter consists of a tuple of (system_prompt, prompt)
-async def refining_stage(model, planning_steps, step_explaining_prompts, code_generation_prompts, code_checking_prompts, problem_prompt, max_iterations=3):
+async def refining_stage(model, planning_steps, step_explaining_prompts, code_generation_prompts,
+                         code_checking_prompts, problem_prompt, max_iterations=3):
     prev_steps = []
     prev_code = []
     for planning_step in planning_steps:
