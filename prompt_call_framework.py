@@ -226,18 +226,14 @@ async def refining_stage(model, messages, system_prompt, planning_steps, code_ge
 #     return "\n".join(prev_sections)
 
 
-async def self_refine(model, problem, system_prompt, planning_prompt, plan_eval_prompt, plan_redo_prompt, code_gen_prompt, code_eval_prompt, code_redo_prompt, final_prompt, max_iterations=3):
+async def self_correct(model, problem, system_prompt, planning_prompt, plan_eval_prompt, plan_redo_prompt, code_gen_prompt, code_eval_prompt, code_redo_prompt, final_prompt, max_iterations=3):
     messages = [{"role": "user", "content": problem}]
     # Implement plan checking prompt
     plan = await planning_stage(model, messages, system_prompt, planning_prompt)
     messages[-1] = {"role": "assistant", "content": messages[-1]["content"] + "\n" + plan}
-    print(plan)
-    print(messages)
     messages, final_plan = await planning_update(model, messages, system_prompt, plan_eval_prompt, plan_redo_prompt)
     planning_steps = parse_planning_response(final_plan)
-    print(planning_steps)
     all_messages = await refining_stage(model, messages, system_prompt, planning_steps, code_gen_prompt, code_eval_prompt, code_redo_prompt, final_prompt, max_iterations)
-    print(all_messages)
     final_result = all_messages[-1]["content"]
     idx = final_result.index("```python\n")
     code = final_result[idx + len("```python\n"):final_result.index("```", idx + 1)]
@@ -252,4 +248,4 @@ async def self_refine(model, problem, system_prompt, planning_prompt, plan_eval_
 
 if __name__ == "__main__":
     model = "anthropic"
-    asyncio.run(self_refine(model, problem, main_system_prompt, main_planning_prompt, main_plan_eval_prompt, main_plan_redo_prompt, main_code_gen_prompt, main_code_eval_prompt, main_code_redo_prompt, main_final_prompt))
+    asyncio.run(self_correct(model, problem, main_system_prompt, main_planning_prompt, main_plan_eval_prompt, main_plan_redo_prompt, main_code_gen_prompt, main_code_eval_prompt, main_code_redo_prompt, main_final_prompt))
