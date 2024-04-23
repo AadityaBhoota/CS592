@@ -1,18 +1,30 @@
+import contextlib
 import os
 import time
 from uuid import uuid4
 
 
-def execute_code(code_program: str, tmpdir="./tmp") -> bool:
+def execute_code(code_program: str, outfile=None) -> bool:
     """Unsafely(!!!) executes code and returns if successfully ran (asserts are considered fails)
     """
-    try:
-        glob = {}
-        exec(code_program, glob)
-        return True
-    except Exception as e:
-        # print("Error running code:", e)
-        return False
+    if outfile:
+        with open(outfile, "w") as f:
+            with contextlib.redirect_stdout(f):
+                try:
+                    glob = {}
+                    exec(code_program, glob)
+                    return True
+                except Exception as e:
+                    print("Error running code:", e)
+                    return False
+    else:
+        try:
+            glob = {}
+            exec(code_program, glob)
+            return True
+        except Exception as e:
+            print("Error running code:", e)
+            return False
     
 def main():
     start_time = time.time()
