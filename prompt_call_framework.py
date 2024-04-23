@@ -15,7 +15,6 @@ openai_client = AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 anthropic_client = AsyncAnthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 
 main_system_prompt = "You are a Python expert, who is tasked with a few problems. You carefully plan out everything. You make sure the plan makes sense before you start coding. You only code each step at a time, and you check to see if it follows your plan."
-main_promblem_prompt = "[[problem]]"
 main_planning_prompt = "Let me plan it out step-by-step first:"
 main_plan_eval_prompt = "Are you sure this plan makes sense to do?"
 main_plan_redo_prompt = "Okay. Re-plan it."
@@ -236,9 +235,13 @@ async def self_refine(model, problem, system_prompt, planning_prompt, plan_eval_
     print(messages)
     messages, final_plan = await planning_update(model, messages, system_prompt, plan_eval_prompt, plan_redo_prompt)
     planning_steps = parse_planning_response(final_plan)
+    print(planning_steps)
     all_messages = await refining_stage(model, messages, system_prompt, planning_steps, code_gen_prompt, code_eval_prompt, code_redo_prompt, final_prompt, max_iterations)
     print(all_messages)
-    # Either save or evaluate code from here
+    final_result = all_messages[-1]["content"]
+    idx = final_result.index("```python\n")
+    code = final_result[idx + len("```python\n"):final_result.index("```", idx + 1)]
+    return code
 
 
 # async def ablation_self_refine(model, problem, planning_prompts, full_code_generation_prompts, code_evaluation_prompts, code_regeneration_prompts, max_iterations=3):
@@ -248,5 +251,5 @@ async def self_refine(model, problem, system_prompt, planning_prompt, plan_eval_
 
 
 if __name__ == "__main__":
-    model = "openai"
+    model = "anthropic"
     asyncio.run(self_refine(model, problem, main_system_prompt, main_planning_prompt, main_plan_eval_prompt, main_plan_redo_prompt, main_code_gen_prompt, main_code_eval_prompt, main_code_redo_prompt, main_final_prompt))
