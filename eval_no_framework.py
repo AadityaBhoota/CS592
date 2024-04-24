@@ -1,6 +1,7 @@
 import json
 import re
 from typing import List
+import anthropic
 
 import openai
 from dataset import load_dataset, load_humaneval_dataset, load_mbpp_sanitized_dataset
@@ -8,13 +9,15 @@ from execution import execute_code
 import asyncio
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
+from anthropic import AsyncAnthropic
 import os
 import time
 from pathlib import Path
 import backoff
 load_dotenv()
 
-client = AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+openai_client = AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+anthropic_client = AsyncAnthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 system_prompt = "You are a Python expert, who is tasked with a few problems. Please solve this problem."
 
 ct = 0
@@ -24,8 +27,8 @@ dataset_len = 0
 @backoff.on_exception(backoff.expo, openai.RateLimitError)
 @backoff.on_exception(backoff.expo, openai.InternalServerError)
 async def prompt_openai(prompt: str, kidx=0):
-    completion = await client.chat.completions.create(
-        model=os.getenv("GPT_MODEL"),
+    completion = await openai_client.chat.completions.create(
+        model="gpt-3.5-turbo-0125",
         messages=[
             {
                 "role": "system",
@@ -35,7 +38,8 @@ async def prompt_openai(prompt: str, kidx=0):
                 "role": "user",
                 "content": prompt
             }
-        ]
+        ],
+        temperature=1
     )
     # postprocess code sols to include the only code
     sol = completion.choices[0].message.content
@@ -46,13 +50,45 @@ async def prompt_openai(prompt: str, kidx=0):
         # not wrapped ```python, maybe the entire output is the code
         code_sol = sol
     # remove outer level print statements
-    re.sub(r"\nprint(.)*", "\n", code_sol)
+    code_sol = re.sub(r"\nprint(.)*", "\n", code_sol)
     print("onto", kidx)
     return code_sol
 
 
-async def prompt_k_openai(prompt: str, k=3):
-    api_calls = [prompt_openai(prompt, idx) for idx in range(k)]
+@backoff.on_exception(backoff.expo, anthropic.RateLimitError)
+@backoff.on_exception(backoff.expo, anthropic.InternalServerError)
+async def prompt_anthropic(prompt: str, kidx=0):
+    completion = await anthropic_client.messages.create(
+        model="claude-3-haiku-20240307",
+        system=system_prompt,
+        messages=[
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ],
+        temperature=1,
+        max_tokens=4096
+    )
+    # postprocess code sols to include the only code
+    sol = completion.content[0].text
+    try:
+        idx = sol.index("```python\n")
+        code_sol = sol[idx + len("```python\n"):sol.index("```", idx + 1)]
+    except:
+        # not wrapped ```python, maybe the entire output is the code
+        code_sol = sol
+    # remove outer level print statements
+    code_sol = re.sub(r"\nprint(.)*", "\n", code_sol)
+    print("onto", kidx)
+    return code_sol
+
+
+async def prompt_k(prompt: str, model: str, k=3):
+    if model == "openai":
+        api_calls = [prompt_openai(prompt, idx) for idx in range(k)]
+    else:
+        api_calls = [prompt_anthropic(prompt, idx) for idx in range(k)]
     code_sols = await asyncio.gather(*api_calls)
     global ct
     ct += 1
@@ -60,13 +96,13 @@ async def prompt_k_openai(prompt: str, k=3):
     return code_sols
 
 
-async def batch_prompt_openai(prompts: List[str], k=3) -> List[List[str]]:
-    api_calls = [prompt_k_openai(prompt, k) for prompt in prompts]
+async def batch_prompt(prompts: List[str], model: str, k=3) -> List[List[str]]:
+    api_calls = [prompt_k(prompt, model, k) for prompt in prompts]
     code_sols = await asyncio.gather(*api_calls)
     return code_sols
 
 
-async def experiment(dataset, results_dir: str, experiment_name: str, k=10, batch_size=5, load_from_file=False):
+async def experiment(dataset, results_dir: str, experiment_name: str, model: str, k=10, batch_size=5, load_from_file=False):
     # create results dir if not exist
     Path(results_dir).mkdir(parents=True, exist_ok=True)
     test_script_dir = os.path.join(results_dir, "test_scripts")
@@ -87,7 +123,7 @@ async def experiment(dataset, results_dir: str, experiment_name: str, k=10, batc
         print("Batch prompting...")
         batch_code_sols = []
         for idx in range(0, len(dataset), batch_size):
-            sols = await batch_prompt_openai(prompts[idx:idx + batch_size], k)
+            sols = await batch_prompt(prompts[idx:idx + batch_size], model, k)
             batch_code_sols += sols
             with open(os.path.join(results_dir, "_sols.json"), "w") as f:
                 labeled_code_sols = {}
@@ -148,11 +184,18 @@ async def experiment(dataset, results_dir: str, experiment_name: str, k=10, batc
     
     
 async def main():
-    dataset = load_humaneval_dataset("./data/HumanEval.jsonl")
+    dataset_name = "mbpp"
+    model = "openai"
+
+    if dataset_name == "humaneval":
+        dataset = load_humaneval_dataset("./data/HumanEval.jsonl")
+    else:
+        dataset = load_mbpp_sanitized_dataset("./data/mbpp-sanitized-examples.json")
     await experiment(
         dataset,
-        results_dir="./results/no_framework/humaneval/",
-        experiment_name="HumanEval (no framework)",
+        results_dir=f"./results/no_framework/{model}/{dataset_name}/",
+        experiment_name=f"{dataset_name} (no framework) ({model})",
+        model=model,
         k=10,
         load_from_file=True
     )

@@ -1,0 +1,56 @@
+def get_closest_vowel(word):
+    """You are given a word. Your task is to find the closest vowel that stands between 
+    two consonants from the right side of the word (case sensitive).
+    
+    Vowels in the beginning and ending doesn't count. Return empty string if you didn't
+    find any vowel met the above condition. 
+
+    You may assume that the given string contains English letter only.
+
+    Example:
+    get_closest_vowel("yogurt") ==> "u"
+    get_closest_vowel("FULL") ==> "U"
+    get_closest_vowel("quick") ==> ""
+    get_closest_vowel("ab") ==> ""
+    """
+    vowels = 'aeiouAEIOU'
+    
+    # Iterate from the right side of the word
+    for i in range(len(word)-1, -1, -1):
+        # Check if the current character is a vowel
+        if word[i] in vowels:
+            # Check if the current vowel is between two consonants
+            left = i - 1
+            right = i + 1
+            while left >= 0 and word[left] in vowels:
+                left -= 1
+            while right < len(word) and word[right] in vowels:
+                right += 1
+            if left >= 0 and right < len(word) and word[left] not in vowels and word[right] not in vowels:
+                return word[i]
+    
+    # If no vowel meets the condition, return an empty string
+    return ""
+
+def check(candidate):
+
+    # Check some simple cases
+    assert candidate("yogurt") == "u"
+    assert candidate("full") == "u"
+    assert candidate("easy") == ""
+    assert candidate("eAsy") == ""
+    assert candidate("ali") == ""
+    assert candidate("bad") == "a"
+    assert candidate("most") == "o"
+    assert candidate("ab") == ""
+    assert candidate("ba") == ""
+    assert candidate("quick") == ""
+    assert candidate("anime") == "i"
+    assert candidate("Asia") == ""
+    assert candidate("Above") == "o"
+
+    # Check some edge cases that are easy to work out by hand.
+    assert True
+
+
+check(get_closest_vowel)

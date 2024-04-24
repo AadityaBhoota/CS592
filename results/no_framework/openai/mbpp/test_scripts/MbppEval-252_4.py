@@ -1,0 +1,24 @@
+import cmath
+
+def convert(num):
+    if isinstance(num, (int, float)):
+        z = complex(num)
+    else:
+        z = num
+
+    r = abs(z)
+    theta = cmath.phase(z)
+
+    return r, theta
+
+# Test cases
+
+
+
+
+def check(candidate):
+    assert convert(1) == (1.0, 0.0)
+    assert convert(4) == (4.0,0.0)
+    assert convert(5) == (5.0,0.0)
+
+check(convert)

@@ -1,0 +1,21 @@
+def validate(n):
+    freq = {}
+    for digit in str(n):
+        freq[digit] = freq.get(digit, 0) + 1
+
+    for digit, count in freq.items():
+        if int(digit) < count:
+            return False
+    return True
+
+# Test cases
+
+
+
+
+def check(candidate):
+    assert validate(1234) == True
+    assert validate(51241) == False
+    assert validate(321) == True
+
+check(validate)

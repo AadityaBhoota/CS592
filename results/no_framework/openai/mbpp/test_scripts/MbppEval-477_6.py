@@ -1,0 +1,13 @@
+def is_lower(string):
+    return string.lower()
+
+# Test the function with the examples from the prompt
+
+
+
+def check(candidate):
+    assert is_lower("InValid") == "invalid"
+    assert is_lower("TruE") == "true"
+    assert is_lower("SenTenCE") == "sentence"
+
+check(is_lower)
