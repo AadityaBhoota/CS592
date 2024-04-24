@@ -1,0 +1,25 @@
+import collections as ct
+
+def merge_dictionaries_three(dict1, dict2, dict3):
+    """
+    Write a function to merge three dictionaries into a single dictionary.
+    """
+    merged_dict = ct.ChainMap(dict1, dict2, dict3)
+    return dict(merged_dict)
+
+# Examples
+
+# Output: {'B': 'Black', 'R': 'Red', 'P': 'Pink', 'G': 'Green', 'W': 'White', 'O': 'Orange'}
+
+
+# Output: {'W': 'White', 'P': 'Pink', 'B': 'Blue', 'R': 'Red', 'G': 'Green', 'L': 'lavender'}
+
+
+# Output: {'B': 'Blue', 'P': 'Pink', 'R': 'Red', 'G': 'Green', 'L': 'lavender', 'W': 'White'}
+
+def check(candidate):
+    assert merge_dictionaries_three({ "R": "Red", "B": "Black", "P": "Pink" }, { "G": "Green", "W": "White" },{ "O": "Orange", "W": "White", "B": "Black" })=={'B': 'Black', 'R': 'Red', 'P': 'Pink', 'G': 'Green', 'W': 'White', 'O': 'Orange'}
+    assert merge_dictionaries_three({ "R": "Red", "B": "Black", "P": "Pink" }, { "G": "Green", "W": "White" },{"L":"lavender","B":"Blue"})=={'W': 'White', 'P': 'Pink', 'B': 'Black', 'R': 'Red', 'G': 'Green', 'L': 'lavender'}
+    assert merge_dictionaries_three({ "R": "Red", "B": "Black", "P": "Pink" },{"L":"lavender","B":"Blue"},{ "G": "Green", "W": "White" })=={'B': 'Black', 'P': 'Pink', 'R': 'Red', 'G': 'Green', 'L': 'lavender', 'W': 'White'}
+
+check(merge_dictionaries_three)

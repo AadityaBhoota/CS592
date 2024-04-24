@@ -1,0 +1,22 @@
+def sequential_search(dlist, item):
+    """
+    Performs a sequential search on the given list to find the specified item.
+
+    Args:
+        dlist (list): The list to search.
+        item (any): The item to search for in the list.
+
+    Returns:
+        tuple: A tuple containing a boolean that indicates if the element is in the array and the index position of the element (or -1 if the element is not found).
+    """
+    for i, elem in enumerate(dlist):
+        if elem == item:
+            return (True, i)
+    return (False, -1)
+
+def check(candidate):
+    assert sequential_search([11,23,58,31,56,77,43,12,65,19],31) == (True, 3)
+    assert sequential_search([12, 32, 45, 62, 35, 47, 44, 61],61) == (True, 7)
+    assert sequential_search([9, 10, 17, 19, 22, 39, 48, 56],48) == (True, 6)
+
+check(sequential_search)

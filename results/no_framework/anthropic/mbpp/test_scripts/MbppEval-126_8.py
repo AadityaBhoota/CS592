@@ -1,0 +1,31 @@
+def sum_common_divisors(a, b):
+    """
+    Finds the sum of common divisors of two given numbers.
+
+    Args:
+        a (int): The first number.
+        b (int): The second number.
+
+    Returns:
+        int: The sum of common divisors of a and b.
+    """
+    # Find the greatest common divisor (GCD) using Euclidean algorithm
+    def gcd(x, y):
+        while y != 0:
+            x, y = y, x % y
+        return x
+
+    # Find the common divisors and sum them up
+    common_divisors = []
+    for i in range(1, min(a, b) + 1):
+        if a % i == 0 and b % i == 0:
+            common_divisors.append(i)
+
+    return sum(common_divisors)
+
+def check(candidate):
+    assert sum(10,15) == 6
+    assert sum(100,150) == 93
+    assert sum(4,6) == 3
+
+check(sum)

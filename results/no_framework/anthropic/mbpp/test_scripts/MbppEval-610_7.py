@@ -1,0 +1,17 @@
+def remove_kth_element(list1, k):
+    """
+    Takes a list and an integer k, and returns a new list with the k'th element removed.
+    """
+    # Check if the input list is empty or k is out of range
+    if not list1 or k < 1 or k > len(list1):
+        return list1
+    
+    # Create a new list with the k'th element removed
+    return list1[:k-1] + list1[k:]
+
+def check(candidate):
+    assert remove_kth_element([1,1,2,3,4,4,5,1],3)==[1, 1, 3, 4, 4, 5, 1]
+    assert remove_kth_element([0, 0, 1, 2, 3, 4, 4, 5, 6, 6, 6, 7, 8, 9, 4, 4],4)==[0, 0, 1, 3, 4, 4, 5, 6, 6, 6, 7, 8, 9, 4, 4]
+    assert remove_kth_element([10, 10, 15, 19, 18, 18, 17, 26, 26, 17, 18, 10],5)==[10,10,15,19, 18, 17, 26, 26, 17, 18, 10]
+
+check(remove_kth_element)

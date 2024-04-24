@@ -152,7 +152,7 @@ async def experiment(dataset, results_dir: str, experiment_name: str, model: str
             if passed:
                 total_correct += 1
                 for k_metric in pass_k_metrics:
-                    if cidx < k_metric:
+                    if cidx <= k_metric:
                         pass_k[f"pass@{k_metric}"] += 1
         # record the number of correct solutions in the current task
         pass_k["total_correct"] = total_correct
@@ -185,7 +185,7 @@ async def experiment(dataset, results_dir: str, experiment_name: str, model: str
     
 async def main():
     dataset_name = "mbpp"
-    model = "openai"
+    model = "anthropic"
 
     if dataset_name == "humaneval":
         dataset = load_humaneval_dataset("./data/HumanEval.jsonl")
@@ -197,7 +197,7 @@ async def main():
         experiment_name=f"{dataset_name} (no framework) ({model})",
         model=model,
         k=10,
-        load_from_file=True
+        load_from_file=False
     )
 
 if __name__ == "__main__":
