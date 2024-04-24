@@ -28,21 +28,9 @@ main_code_eval_prompt = "Are you sure this implements step [[step]] correctly?"
 main_code_redo_prompt = "Okay. Re-implement step [[step]]."
 main_final_prompt = "Good. Now return correct code. Only return code."
 
-problem = """from typing import List
-
-
-def has_close_elements(numbers: List[float], threshold: float) -> bool:
-    \"\"\" Check if in given list of numbers, are any two numbers closer to each other than
-    given threshold.
-    >>> has_close_elements([1.0, 2.0, 3.0], 0.5)
-    False
-    >>> has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)
-    True
-    \"\"\"
-"""
-
 
 @backoff.on_exception(backoff.expo, openai.RateLimitError)
+@backoff.on_exception(backoff.expo, openai.InternalServerError)
 async def prompt_openai(system_prompt, messages, logprobs=None, top_logprobs=None, max_tokens=None, num_responses=1):
     all_messages = []
     all_messages.append({"role": "system", "content": system_prompt})
@@ -61,6 +49,7 @@ async def prompt_openai(system_prompt, messages, logprobs=None, top_logprobs=Non
 
 
 @backoff.on_exception(backoff.expo, anthropic.RateLimitError)
+@backoff.on_exception(backoff.expo, anthropic.InternalServerError)
 async def prompt_anthropic(system_prompt, messages, max_tokens=4096, temperature=1.0):
     message = await anthropic_client.messages.create(
         model="claude-3-haiku-20240307",
@@ -134,7 +123,16 @@ def parse_planning_response(planning_response):
     pattern = r'^(\d+\.\s.+)$'
     steps = re.findall(pattern, planning_response, re.MULTILINE)
 
-    return steps
+    final_steps = []
+    count = 0
+    for step in steps:
+        num = int(step[0])
+        if num < count:
+            break
+        final_steps.append(step)
+        count = num
+
+    return final_steps
 
 
 def is_positive(string):
@@ -240,10 +238,15 @@ async def self_correct(model, problem, system_prompt, planning_prompt, plan_eval
     messages[-1] = {"role": "assistant", "content": messages[-1]["content"] + "\n" + plan}
     messages, final_plan = await planning_update(model, messages, system_prompt, plan_eval_prompt, plan_redo_prompt)
     planning_steps = parse_planning_response(final_plan)
+    print(planning_steps)
+    print(len(planning_steps))
     all_messages = await refining_stage(model, messages, system_prompt, planning_steps, code_gen_prompt, code_eval_prompt, code_redo_prompt, final_prompt, max_iterations)
     final_result = all_messages[-1]["content"]
-    idx = final_result.index("```python\n")
-    code = final_result[idx + len("```python\n"):final_result.index("```", idx + 1)]
+    try:
+        idx = final_result.index("```python\n")
+        code = final_result[idx + len("```python\n"):final_result.index("```", idx + 1)]
+    except:
+        code = ""
     return code
 
 
@@ -252,31 +255,38 @@ async def self_correct(model, problem, system_prompt, planning_prompt, plan_eval
 #     initial_code = await full_code_generation(model, plan, problem, full_code_generation_prompts)
 #     code = await code_refine_stage(model, problem, initial_code, code_evaluation_prompts, code_regeneration_prompts, max_iterations)
 
+
+async def run_once(task_id, file_path, semaphore, model, problem_prompt, main_system_prompt, main_planning_prompt, main_plan_eval_prompt, main_plan_redo_prompt, main_code_gen_prompt, main_code_eval_prompt, main_code_redo_prompt, main_final_prompt):
+    async with semaphore:
+        code_sol = await self_correct(model, problem_prompt, main_system_prompt, main_planning_prompt, main_plan_eval_prompt, main_plan_redo_prompt, main_code_gen_prompt, main_code_eval_prompt, main_code_redo_prompt, main_final_prompt)
+        with open(file_path, "a") as file:
+            labeled_code_sols = {}
+            labeled_code_sols[task_id] = code_sol
+            json.dump(labeled_code_sols, file, indent=4)
+            file.flush()
+
+
 async def main():
     model = "openai"
-    dataset = load_humaneval_dataset("./data/HumanEval.jsonl")
-    results_dir = "./results/pipeline/humaneval/"
-    prompts = [task["prompt"] for task in dataset]
-    # runs = []
-    # for problem_prompt in prompts:
-    #     runs.append(self_correct(model, problem_prompt, main_system_prompt, main_planning_prompt, main_plan_eval_prompt,
-    #                              main_plan_redo_prompt, main_code_gen_prompt, main_code_eval_prompt,
-    #                              main_code_redo_prompt, main_final_prompt))
+    # dataset = load_humaneval_dataset("./data/HumanEval.jsonl")
+    dataset = load_mbpp_sanitized_dataset("./data/mbpp-sanitized-examples.json")
+    results_dir = "./results/pipeline/mbpp/"
 
-    batch_size = 20
-    with open(os.path.join(results_dir, "_sols05.json"), "a") as f:
-        for i in range(0, len(dataset), batch_size):
-            curr_prompts = prompts[i:i+batch_size]
-            curr_runs = [self_correct(model, problem_prompt, main_system_prompt, main_planning_prompt, main_plan_eval_prompt,
-                                 main_plan_redo_prompt, main_code_gen_prompt, main_code_eval_prompt,
-                                 main_code_redo_prompt, main_final_prompt) for problem_prompt in curr_prompts]
-            code_sols = await asyncio.gather(*curr_runs)
-            labeled_code_sols = {}
-            for idx, code_sols in enumerate(code_sols):
-                task_id = dataset[i + idx]["task_id"]
-                labeled_code_sols[task_id] = code_sols
-            json.dump(labeled_code_sols, f, indent=4)
-            f.flush()
+    for j in range(1, 6):
+        batch_size = 40
+        runs = []
+        semaphore = asyncio.Semaphore(batch_size)
+        previous_json = {}
+        with open(os.path.join(results_dir, f"openai_sols0{j}.json"), "r") as file:
+            previous_json = json.load(file)
+        for task in dataset:
+            if task["task_id"] in previous_json.keys():
+                continue
+            runs.append(run_once(task["task_id"], os.path.join(results_dir, f"openai_sols0{j}.json"), semaphore, model, task["prompt"], main_system_prompt, main_planning_prompt, main_plan_eval_prompt,
+                                     main_plan_redo_prompt, main_code_gen_prompt, main_code_eval_prompt,
+                                     main_code_redo_prompt, main_final_prompt))
+
+        await asyncio.gather(*runs)
 
 if __name__ == "__main__":
     asyncio.run(main())
