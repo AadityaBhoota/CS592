@@ -6,6 +6,11 @@ import re
 from anthropic import AsyncAnthropic
 import nltk
 from nltk.sentiment import SentimentIntensityAnalyzer
+import backoff
+import openai
+import json
+import anthropic
+from dataset import load_dataset, load_humaneval_dataset, load_mbpp_sanitized_dataset
 load_dotenv()
 
 nltk.download('vader_lexicon')
@@ -37,6 +42,7 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
 """
 
 
+@backoff.on_exception(backoff.expo, openai.RateLimitError)
 async def prompt_openai(system_prompt, messages, logprobs=None, top_logprobs=None, max_tokens=None, num_responses=1):
     all_messages = []
     all_messages.append({"role": "system", "content": system_prompt})
@@ -54,6 +60,7 @@ async def prompt_openai(system_prompt, messages, logprobs=None, top_logprobs=Non
     return completion
 
 
+@backoff.on_exception(backoff.expo, anthropic.RateLimitError)
 async def prompt_anthropic(system_prompt, messages, max_tokens=4096, temperature=1.0):
     message = await anthropic_client.messages.create(
         model="claude-3-haiku-20240307",
@@ -245,7 +252,31 @@ async def self_correct(model, problem, system_prompt, planning_prompt, plan_eval
 #     initial_code = await full_code_generation(model, plan, problem, full_code_generation_prompts)
 #     code = await code_refine_stage(model, problem, initial_code, code_evaluation_prompts, code_regeneration_prompts, max_iterations)
 
+async def main():
+    model = "openai"
+    dataset = load_humaneval_dataset("./data/HumanEval.jsonl")
+    results_dir = "./results/pipeline/humaneval/"
+    prompts = [task["prompt"] for task in dataset]
+    # runs = []
+    # for problem_prompt in prompts:
+    #     runs.append(self_correct(model, problem_prompt, main_system_prompt, main_planning_prompt, main_plan_eval_prompt,
+    #                              main_plan_redo_prompt, main_code_gen_prompt, main_code_eval_prompt,
+    #                              main_code_redo_prompt, main_final_prompt))
+
+    batch_size = 20
+    with open(os.path.join(results_dir, "_sols05.json"), "a") as f:
+        for i in range(0, len(dataset), batch_size):
+            curr_prompts = prompts[i:i+batch_size]
+            curr_runs = [self_correct(model, problem_prompt, main_system_prompt, main_planning_prompt, main_plan_eval_prompt,
+                                 main_plan_redo_prompt, main_code_gen_prompt, main_code_eval_prompt,
+                                 main_code_redo_prompt, main_final_prompt) for problem_prompt in curr_prompts]
+            code_sols = await asyncio.gather(*curr_runs)
+            labeled_code_sols = {}
+            for idx, code_sols in enumerate(code_sols):
+                task_id = dataset[i + idx]["task_id"]
+                labeled_code_sols[task_id] = code_sols
+            json.dump(labeled_code_sols, f, indent=4)
+            f.flush()
 
 if __name__ == "__main__":
-    model = "anthropic"
-    asyncio.run(self_correct(model, problem, main_system_prompt, main_planning_prompt, main_plan_eval_prompt, main_plan_redo_prompt, main_code_gen_prompt, main_code_eval_prompt, main_code_redo_prompt, main_final_prompt))
+    asyncio.run(main())
