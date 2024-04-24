@@ -21,6 +21,7 @@ dataset_len = 0
 
 
 @backoff.on_exception(backoff.expo, openai.RateLimitError)
+@backoff.on_exception(backoff.expo, openai.InternalServerError)
 async def prompt_openai(prompt: str, kidx=0):
     completion = await client.chat.completions.create(
         model=os.getenv("GPT_MODEL"),
@@ -62,7 +63,7 @@ async def batch_prompt_openai(prompts: List[str], k=3) -> List[List[str]]:
     return code_sols
 
 
-async def experiment(dataset_path: str, results_dir: str, experiment_name: str, k=10, batch_size=5):
+async def experiment(dataset_path: str, results_dir: str, experiment_name: str, k=10, batch_size=5, load_from_file=False):
     # create results dir if not exist
     Path(results_dir).mkdir(parents=True, exist_ok=True)
     test_script_dir = os.path.join(results_dir, "test_scripts")
@@ -73,18 +74,23 @@ async def experiment(dataset_path: str, results_dir: str, experiment_name: str, 
     dataset = load_humaneval_dataset(dataset_path)
     dataset_len = len(dataset)
     prompts = [task["prompt"] for task in dataset]
-    print("Batch prompting...")
-    batch_code_sols = []
-    for idx in range(0, len(dataset), batch_size):
-        sols = await batch_prompt_openai(prompts[idx:idx + batch_size], k)
-        batch_code_sols.append(sols)
 
-    with open(os.path.join(results_dir, "_sols.json"), "w") as f:
-        labeled_code_sols = {}
-        for idx, code_sols in enumerate(batch_code_sols):
-            task_id = dataset[idx]["task_id"]
-            labeled_code_sols[task_id] = code_sols
-        json.dump(labeled_code_sols, f, indent=4)
+    if load_from_file:
+        print("Loading sols from file...")
+        with open(os.path.join(results_dir, "_sols.json"), "w") as f:
+            batch_code_sols = json.load(f)
+    else:
+        print("Batch prompting...")
+        batch_code_sols = []
+        for idx in range(0, len(dataset), batch_size):
+            sols = await batch_prompt_openai(prompts[idx:idx + batch_size], k)
+            batch_code_sols += sols
+            with open(os.path.join(results_dir, "_sols.json"), "w") as f:
+                labeled_code_sols = {}
+                for idx, code_sols in enumerate(batch_code_sols):
+                    task_id = dataset[idx]["task_id"]
+                    labeled_code_sols[task_id] = code_sols
+                json.dump(labeled_code_sols, f, indent=4)
 
     print()
     print("Executing code and testing...")
@@ -101,8 +107,8 @@ async def experiment(dataset_path: str, results_dir: str, experiment_name: str, 
             with open(os.path.join(test_script_dir, f"{task_id}_{cidx}.py"), "w") as f:
                 f.write(test_script)
             # execute and redirect output to its own file
-            outfile = os.path.join(results_dir, f"{task_id}_{cidx}.out")
-            passed = execute_code(test_script, outfile)
+            outfile = os.path.join(test_script_dir, f"{task_id}_{cidx}.out")
+            passed = execute_code(test_script, timeout=10, outfile=outfile)
             if passed:
                 total_correct += 1
                 for k_metric in pass_k_metrics:
@@ -142,7 +148,8 @@ async def main():
         dataset_path="./data/HumanEval.jsonl",
         results_dir="./results/no_framework/humaneval/",
         experiment_name="HumanEval (no framework)",
-        k=10
+        k=10,
+        load_from_file=True
     )
 
 if __name__ == "__main__":
