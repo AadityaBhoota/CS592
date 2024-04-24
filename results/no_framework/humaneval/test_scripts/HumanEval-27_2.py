@@ -10,7 +10,7 @@ def flip_case(string: str) -> str:
     return flipped
 
 # Test the function with the example you provided
-print(flip_case('Hello'))  # Output should be 'hELLO'
+
 
 
 

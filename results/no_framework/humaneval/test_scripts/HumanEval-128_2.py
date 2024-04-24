@@ -14,9 +14,9 @@ def prod_signs(arr):
     return total * product
 
 # Test the function with the provided examples
-print(prod_signs([1, 2, 2, -4]))  # Output: -9
-print(prod_signs([0, 1]))          # Output: 0
-print(prod_signs([]))              # Output: None
+
+
+
 
 def check(candidate):
 

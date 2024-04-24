@@ -10,9 +10,9 @@ def sum_squares(lst):
     return result
 
 # Test cases
-print(sum_squares([1, 2, 3]))   # Output: 6
-print(sum_squares([]))           # Output: 0
-print(sum_squares([-1, -5, 2, -1, -5]))   # Output: -126
+
+
+
 
 def check(candidate):
 

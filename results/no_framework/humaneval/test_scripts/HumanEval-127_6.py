@@ -28,9 +28,9 @@ def intersection(interval1, interval2):
         return "NO"
 
 # Test the function with the provided sample examples
-print(intersection((1, 2), (2, 3)))  # Output: "NO"
-print(intersection((-1, 1), (0, 4)))  # Output: "NO"
-print(intersection((-3, -1), (-5, 5)))  # Output: "YES"
+
+
+
 
 def check(candidate):
 

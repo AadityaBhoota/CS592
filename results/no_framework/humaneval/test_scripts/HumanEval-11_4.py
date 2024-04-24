@@ -12,8 +12,8 @@ def string_xor(a: str, b: str) -> str:
     return result
 
 # Test the function
-print(string_xor('010', '110'))  # Output: '100'
-print(string_xor('1010', '1101'))  # Output: '0111'
+
+
 
 
 

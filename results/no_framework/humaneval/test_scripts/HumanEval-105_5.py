@@ -24,9 +24,9 @@ arr1 = [2, 1, 1, 4, 5, 8, 2, 3]
 arr2 = []
 arr3 = [1, -1, 55]
 
-print(by_length(arr1))  # Output: ['Eight', 'Five', 'Four', 'Three', 'Two', 'Two', 'One', 'One']
-print(by_length(arr2))  # Output: []
-print(by_length(arr3))  # Output: ['One']
+
+
+
 
 def check(candidate):
 

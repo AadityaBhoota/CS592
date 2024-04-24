@@ -11,9 +11,9 @@ def find_max(words):
     return max_word
 
 # Test cases
-print(find_max(["name", "of", "string"]))  # Output: "string"
-print(find_max(["name", "enam", "game"]))  # Output: "enam"
-print(find_max(["aaaaaaa", "bb", "cc"]))  # Output: "aaaaaaa"
+
+
+
 
 def check(candidate):
 

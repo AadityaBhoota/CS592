@@ -16,7 +16,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     return [max_depth]
 
 # Test the function
-print(parse_nested_parens('(()()) ((())) () ((())()())'))  # Output: [3]
+
 
 
 

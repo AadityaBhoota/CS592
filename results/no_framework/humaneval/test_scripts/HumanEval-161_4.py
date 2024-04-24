@@ -10,9 +10,9 @@ def solve(s):
     return result
 
 # Test cases
-print(solve("1234"))  # Output: "4321"
-print(solve("ab"))    # Output: "AB"
-print(solve("#a@C"))  # Output: "#A@c"
+
+
+
 
 def check(candidate):
 

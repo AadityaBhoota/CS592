@@ -10,8 +10,8 @@ def exchange(lst1, lst2):
     return "YES"  # If lst1 already has no odd elements, return "YES"
 
 # Test cases
-print(exchange([1, 2, 3, 4], [1, 2, 3, 4]))  # Output should be "YES"
-print(exchange([1, 2, 3, 4], [1, 5, 3, 4]))  # Output should be "NO"
+
+
 
 def check(candidate):
 

@@ -14,7 +14,7 @@ def parse_music(music_string: str) -> List[int]:
 
 # Test the function with the given example
 parsed_notes = parse_music('o o| .| o| o| .| .| .| .| o o')
-print(parsed_notes)
+
 
 
 

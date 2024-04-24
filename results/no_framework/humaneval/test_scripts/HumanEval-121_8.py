@@ -2,9 +2,9 @@ def solution(lst):
     return sum(x for i, x in enumerate(lst) if i % 2 == 0 and x % 2 != 0)
 
 # Test cases
-print(solution([5, 8, 7, 1]))  # Output: 12
-print(solution([3, 3, 3, 3, 3]))  # Output: 9
-print(solution([30, 13, 24, 321]))  # Output: 0
+
+
+
 
 def check(candidate):
 

@@ -17,8 +17,8 @@ def match_parens(lst):
     return 'Yes' if not stack else 'No'
 
 # Test cases
-print(match_parens(['()(', ')']))  # Expected output: 'Yes'
-print(match_parens([')', ')']))     # Expected output: 'No'
+
+
 
 def check(candidate):
 

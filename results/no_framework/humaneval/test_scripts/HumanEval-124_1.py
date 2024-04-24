@@ -27,11 +27,11 @@ def valid_date(date):
     return True
 
 # Test examples
-print(valid_date('03-11-2000'))  # True
-print(valid_date('15-01-2012'))  # False
-print(valid_date('04-0-2040'))   # False
-print(valid_date('06-04-2020'))  # True
-print(valid_date('06/04/2020'))  # False
+
+
+
+
+
 
 def check(candidate):
 

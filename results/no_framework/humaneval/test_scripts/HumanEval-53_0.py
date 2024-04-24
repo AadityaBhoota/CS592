@@ -9,8 +9,8 @@ def add(x: int, y: int) -> int:
     return x + y
 
 # Test cases
-print(add(2, 3))  # Output: 5
-print(add(5, 7))  # Output: 12
+
+
 
 
 

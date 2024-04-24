@@ -35,11 +35,11 @@ def minPath(grid, k):
 # Test cases
 grid1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 k1 = 3
-print(minPath(grid1, k1))  # Output: [1, 2, 1]
+
 
 grid2 = [[5, 9, 3], [4, 1, 6], [7, 8, 2]]
 k2 = 1
-print(minPath(grid2, k2))  # Output: [1]
+
 
 def check(candidate):
 

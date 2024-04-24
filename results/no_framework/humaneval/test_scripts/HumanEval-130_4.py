@@ -15,11 +15,11 @@ def tri(n):
         return tribonacci
 
 # Test the function
-print(tri(0))  # [0]
-print(tri(1))  # [3]
-print(tri(2))  # [1, 3]
-print(tri(3))  # [1, 3, 2, 8]
-print(tri(5))  # [1, 3, 2, 8, 9, 22]
+
+
+
+
+
 
 def check(candidate):
 

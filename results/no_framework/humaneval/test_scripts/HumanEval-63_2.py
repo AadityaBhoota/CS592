@@ -10,9 +10,9 @@ def fibfib(n: int, memo={}):
     return result
 
 # Testing the function with the given examples
-print(fibfib(1))  # Output: 0
-print(fibfib(5))  # Output: 4
-print(fibfib(8))  # Output: 24
+
+
+
 
 
 

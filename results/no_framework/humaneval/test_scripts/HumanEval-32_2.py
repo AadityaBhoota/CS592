@@ -21,8 +21,8 @@ def find_zero(xs: list):
     raise ValueError("No zero found within the range.")
 
 # Test cases
-print(round(find_zero([1, 2]), 2))  # Should output -0.5
-print(round(find_zero([-6, 11, -6, 1]), 2))  # Should output 1.0
+
+
 
 
 

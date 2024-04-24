@@ -10,9 +10,9 @@ def split_words(txt):
     return len(odd_alphabets)
 
 # Test cases
-print(split_words("Hello world!"))  # ➞ ["Hello", "world!"]
-print(split_words("Hello,world!"))  # ➞ ["Hello", "world!"]
-print(split_words("abcdef"))  # ➞ 3
+
+
+
 
 def check(candidate):
 

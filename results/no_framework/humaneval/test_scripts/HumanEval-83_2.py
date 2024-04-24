@@ -7,7 +7,7 @@ def starts_one_ends(n):
 
 # Test the function
 n = 3
-print(starts_one_ends(n))  # Output the count of n-digit positive integers starting or ending with 1
+
 
 def check(candidate):
 

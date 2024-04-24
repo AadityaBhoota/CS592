@@ -3,12 +3,12 @@ def same_chars(s0: str, s1: str) -> bool:
 
 
 # Testing the function with the given test cases
-print(same_chars('eabcdzzzz', 'dddzzzzzzzddeddabc'))  # True
-print(same_chars('abcd', 'dddddddabc'))  # True
-print(same_chars('dddddddabc', 'abcd'))  # True
-print(same_chars('eabcd', 'dddddddabc'))  # False
-print(same_chars('abcd', 'dddddddabce'))  # False
-print(same_chars('eabcdzzzz', 'dddzzzzzzzddddabc'))  # False
+
+
+
+
+
+
 
 
 

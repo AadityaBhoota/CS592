@@ -15,7 +15,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
 
 # Test the function with the provided example
-print(separate_paren_groups('( ) (( )) (( )( ))'))
+
 
 
 

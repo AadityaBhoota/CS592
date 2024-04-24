@@ -13,9 +13,9 @@ def make_palindrome(string: str) -> str:
     return string  # Return the input string if no palindrome suffix is found
 
 # Testing the function with the provided test cases
-print(make_palindrome(''))  # Output: ''
-print(make_palindrome('cat'))  # Output: 'catac'
-print(make_palindrome('cata'))  # Output: 'catac'
+
+
+
 
 
 

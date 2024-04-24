@@ -2,9 +2,9 @@ def maximum(arr, k):
     return sorted(arr, reverse=True)[:k]
 
 # Test cases
-print(maximum([-3, -4, 5], 3))  # Output: [-4, 5, -3]
-print(maximum([4, -4, 4], 2))    # Output: [4, 4]
-print(maximum([-3, 2, 1, 2, -1, -2, 1], 1))  # Output: [2]
+
+
+
 
 def check(candidate):
 

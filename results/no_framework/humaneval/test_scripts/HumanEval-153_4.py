@@ -9,7 +9,7 @@ def Strongest_Extension(class_name, extensions):
 
 # Test the function with the example given in the problem statement
 result = Strongest_Extension('my_class', ['AA', 'Be', 'CC'])
-print(result)  # Output: my_class.AA
+
 
 def check(candidate):
 

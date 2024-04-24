@@ -25,9 +25,9 @@ def make_palindrome(string: str) -> str:
     return string  # If the string itself is a palindrome
 
 # Test cases
-print(make_palindrome(''))  # Output: ''
-print(make_palindrome('cat'))  # Output: 'catac'
-print(make_palindrome('cata'))  # Output: 'catac'
+
+
+
 
 
 

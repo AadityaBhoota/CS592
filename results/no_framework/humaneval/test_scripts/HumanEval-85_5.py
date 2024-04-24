@@ -3,7 +3,7 @@ def add(lst):
     return sum_of_even_odd_indices
 
 # Test the function with the example given
-print(add([4, 2, 6, 7]))  # Output: 2
+
 
 def check(candidate):
 

@@ -14,8 +14,8 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
     return result
 
 # Testing the function
-print(find_closest_elements([1.0, 2.0, 3.0, 4.0, 5.0, 2.2]))  # Output: (2.0, 2.2)
-print(find_closest_elements([1.0, 2.0, 3.0, 4.0, 5.0, 2.0]))  # Output: (2.0, 2.0)
+
+
 
 
 

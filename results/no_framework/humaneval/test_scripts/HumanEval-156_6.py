@@ -17,9 +17,9 @@ def int_to_mini_roman(number):
     return result.lower()
 
 # Test cases
-print(int_to_mini_roman(19))  # Output: 'xix'
-print(int_to_mini_roman(152))  # Output: 'clii'
-print(int_to_mini_roman(426))  # Output: 'cdxxvi'
+
+
+
 
 def check(candidate):
 

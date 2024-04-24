@@ -14,7 +14,7 @@ def rolling_max(numbers: List[int]) -> List[int]:
     return result
 
 # Test the function with the example provided
-print(rolling_max([1, 2, 3, 2, 3, 4, 2]))  # Output: [1, 2, 3, 3, 3, 4, 4]
+
 
 
 

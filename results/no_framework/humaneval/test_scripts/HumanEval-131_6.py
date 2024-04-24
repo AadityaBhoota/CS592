@@ -8,9 +8,9 @@ def digits(n):
     return product if product != 1 else 0
 
 # Test cases
-print(digits(1))   # Output: 1
-print(digits(4))   # Output: 0
-print(digits(235)) # Output: 15
+
+
+
 
 def check(candidate):
 

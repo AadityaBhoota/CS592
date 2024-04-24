@@ -13,7 +13,7 @@ def make_a_pile(n):
     return stones
 
 # Test the function with the example
-print(make_a_pile(3))  # Output: [3, 5, 7]
+
 
 def check(candidate):
 

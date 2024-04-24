@@ -34,7 +34,7 @@ def numerical_letter_grade(grades):
 # Test the function
 grades = [4.0, 3, 1.7, 2, 3.5]
 result = numerical_letter_grade(grades)
-print(result)  # Output: ['A+', 'C', 'C-', 'C+', 'A-']
+
 
 def check(candidate):
 

@@ -16,9 +16,9 @@ def prod_signs(arr):
     return product_of_signs * sum_of_magnitudes
 
 # Testing the function with the provided examples
-print(prod_signs([1, 2, 2, -4]))  # Output should be -9
-print(prod_signs([0, 1]))         # Output should be 0
-print(prod_signs([]))             # Output should be None
+
+
+
 
 def check(candidate):
 

@@ -1,3 +1,1 @@
-True
-False
 Error running code: 'int' object has no attribute 'islower'

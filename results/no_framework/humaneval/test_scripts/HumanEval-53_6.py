@@ -3,8 +3,8 @@ def add(x: int, y: int):
     return x + y
 
 # Testing the function
-print("Adding 2 and 3:", add(2, 3))  # Output: 5
-print("Adding 5 and 7:", add(5, 7))  # Output: 12
+
+
 
 
 

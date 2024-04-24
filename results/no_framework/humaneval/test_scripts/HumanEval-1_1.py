@@ -18,7 +18,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
 
 # Test the function
-print(separate_paren_groups('( ) (( )) (( )( ))'))  # Output: ['()', '(())', '(()())']
+
 
 
 

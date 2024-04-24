@@ -10,8 +10,8 @@ def triangle_area(a, b, c):
         return -1
 
 # Test the function
-print(triangle_area(3, 4, 5))  # Output: 6.0
-print(triangle_area(1, 2, 10))  # Output: -1
+
+
 
 def check(candidate):
 

@@ -3,7 +3,7 @@ def unique(l: list):
     return sorted(list(set(l)))
 
 # Test the function
-print(unique([5, 3, 5, 2, 3, 3, 9, 0, 123]))
+
 
 
 

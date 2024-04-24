@@ -7,8 +7,8 @@ def odd_count(lst):
     return output
 
 # Test cases
-print(odd_count(['1234567']))
-print(odd_count(['3', '11111111']))
+
+
 
 def check(candidate):
 

@@ -9,11 +9,11 @@ def select_words(s, n):
     return result
 
 # Test cases
-print(select_words("Mary had a little lamb", 4))  # Output: ["little"]
-print(select_words("Mary had a little lamb", 3))  # Output: ["Mary", "lamb"]
-print(select_words("simple white space", 2))       # Output: []
-print(select_words("Hello world", 4))              # Output: ["world"]
-print(select_words("Uncle sam", 3))                # Output: ["Uncle"]
+
+
+
+
+
 
 def check(candidate):
 

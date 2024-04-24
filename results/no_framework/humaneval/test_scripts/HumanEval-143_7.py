@@ -18,10 +18,10 @@ def words_in_sentence(sentence):
 
 # Test the function
 sentence1 = "This is a test"
-print(words_in_sentence(sentence1))  # Output: "is"
+
 
 sentence2 = "lets go for swimming"
-print(words_in_sentence(sentence2))  # Output: "go for"
+
 
 def check(candidate):
 

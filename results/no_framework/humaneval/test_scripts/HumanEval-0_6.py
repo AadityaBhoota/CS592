@@ -8,8 +8,8 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
     return False
 
 # Testing the function with the sample test cases
-print(has_close_elements([1.0, 2.0, 3.0], 0.5))  # Output: False
-print(has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3))  # Output: True
+
+
 
 
 

@@ -2,12 +2,12 @@ def iscube(a):
     return round(a**(1/3))**3 == a
 
 # Test cases
-print(iscube(1))    # Output: True
-print(iscube(2))    # Output: False
-print(iscube(-1))   # Output: True
-print(iscube(64))   # Output: True
-print(iscube(0))    # Output: True
-print(iscube(180))  # Output: False
+
+
+
+
+
+
 
 def check(candidate):
 

@@ -10,10 +10,10 @@ def next_smallest(lst):
         return unique_sorted_lst[1]
 
 # Test cases
-print(next_smallest([1, 2, 3, 4, 5]))  # 2
-print(next_smallest([5, 1, 4, 3, 2]))  # 2
-print(next_smallest([]))  # None
-print(next_smallest([1, 1]))  # None
+
+
+
+
 
 def check(candidate):
 

@@ -15,7 +15,7 @@ def tri(n):
 
 # Example usage
 n = 3
-print(tri(n))  # Output: [3, 1, 8]
+
 
 def check(candidate):
 

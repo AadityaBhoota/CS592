@@ -535,8 +535,8 @@
         "pass@1": 0,
         "pass@3": 1,
         "pass@5": 2,
-        "pass@10": 3,
-        "total_correct": 3
+        "pass@10": 4,
+        "total_correct": 4
     },
     "HumanEval/77": {
         "pass@1": 0,
@@ -609,11 +609,11 @@
         "total_correct": 6
     },
     "HumanEval/87": {
-        "pass@1": 1,
-        "pass@3": 3,
-        "pass@5": 5,
-        "pass@10": 8,
-        "total_correct": 8
+        "pass@1": 0,
+        "pass@3": 1,
+        "pass@5": 1,
+        "pass@10": 1,
+        "total_correct": 1
     },
     "HumanEval/88": {
         "pass@1": 1,

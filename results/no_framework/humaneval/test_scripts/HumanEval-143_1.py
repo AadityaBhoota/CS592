@@ -18,8 +18,8 @@ def words_in_sentence(sentence):
     return ' '.join(result)
 
 # Test the function with the examples from the problem statement
-print(words_in_sentence("This is a test"))  # Output: "is"
-print(words_in_sentence("lets go for swimming"))  # Output: "go for"
+
+
 
 def check(candidate):
 

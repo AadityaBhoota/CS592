@@ -8,9 +8,9 @@ def solve(N):
     return bin(binary_sum)[2:]  # Convert the sum back to binary and remove the '0b' prefix
 
 # Test the function with examples in the docstring
-print(solve(1000))  # Output: "1"
-print(solve(150))   # Output: "110"
-print(solve(147))   # Output: "1100"
+
+
+
 
 def check(candidate):
 

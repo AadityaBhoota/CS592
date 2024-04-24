@@ -13,10 +13,10 @@ def vowels_count(s):
     return count
 
 # Test cases
-print(vowels_count("abcde"))  # Output: 2
-print(vowels_count("ACEDY"))  # Output: 3
-print(vowels_count("hello"))  # Output: 2
-print(vowels_count("Python"))  # Output: 1
+
+
+
+
 
 def check(candidate):
 

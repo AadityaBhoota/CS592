@@ -12,9 +12,9 @@ def digits(n):
     return product if has_odd_digit else 0
 
 # Test cases
-print(digits(1))    # 1
-print(digits(4))    # 0
-print(digits(235))  # 15
+
+
+
 
 def check(candidate):
 

@@ -8,7 +8,7 @@ def string_xor(a: str, b: str) -> str:
     return result
 
 # Test the function
-print(string_xor('010', '110'))  # Output: '100'
+
 
 
 

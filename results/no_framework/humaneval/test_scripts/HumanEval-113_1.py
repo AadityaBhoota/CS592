@@ -7,8 +7,8 @@ def odd_count(lst):
     return output
 
 # Test cases
-print(odd_count(['1234567']))  # Output: ["the number of odd elements in the string 4 in the input."]
-print(odd_count(['3',"11111111"]))  # Output: ["the number of odd elements in the string 1 in the input.", "the number of odd elements in the string 8 in the input."]
+
+
 
 def check(candidate):
 

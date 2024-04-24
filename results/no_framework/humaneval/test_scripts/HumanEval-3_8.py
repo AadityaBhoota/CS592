@@ -9,8 +9,8 @@ def below_zero(operations: List[int]) -> bool:
     return False
 
 # Testing the function with sample inputs
-print(below_zero([1, 2, 3]))  # Output: False
-print(below_zero([1, 2, -4, 5]))  # Output: True
+
+
 
 
 

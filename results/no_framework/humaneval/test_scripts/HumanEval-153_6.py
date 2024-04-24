@@ -8,8 +8,8 @@ def Strongest_Extension(class_name, extensions):
     return f"{class_name}.{strongest}"
 
 # Test cases
-print(Strongest_Extension('my_class', ['AA', 'Be', 'CC']))  # 'my_class.AA'
-print(Strongest_Extension('Slices', ['SErviNGSliCes', 'Cheese', 'StuFfed']))  # 'Slices.SErviNGSliCes'
+
+
 
 def check(candidate):
 

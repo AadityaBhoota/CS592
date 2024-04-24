@@ -4,7 +4,7 @@ def largest_divisor(n: int) -> int:
             return i
 
 # Test the function with the example given in the docstring
-print(largest_divisor(15))  # Output should be 5
+
 
 
 

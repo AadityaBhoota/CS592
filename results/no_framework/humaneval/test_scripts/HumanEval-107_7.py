@@ -15,8 +15,8 @@ def even_odd_palindrome(n):
     return (even_count, odd_count)
 
 # Test the function with some examples
-print(even_odd_palindrome(3))  # (1, 2)
-print(even_odd_palindrome(12))  # (4, 6)
+
+
 
 def check(candidate):
 

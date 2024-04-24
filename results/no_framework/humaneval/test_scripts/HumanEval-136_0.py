@@ -12,9 +12,9 @@ def largest_smallest_integers(lst):
     return (largest_negative, smallest_positive)
 
 # Test the function with the examples provided
-print(largest_smallest_integers([2, 4, 1, 3, 5, 7]))  # Expected output: (None, 1)
-print(largest_smallest_integers([]))  # Expected output: (None, None)
-print(largest_smallest_integers([0]))  # Expected output: (None, None)
+
+
+
 
 def check(candidate):
 

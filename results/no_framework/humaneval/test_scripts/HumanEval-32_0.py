@@ -20,8 +20,8 @@ def find_zero(xs: list):
 
 
 # Testing the find_zero function with the provided examples
-print(round(find_zero([1, 2]), 2))  # Output should be approximately -0.5
-print(round(find_zero([-6, 11, -6, 1]), 2))  # Output should be approximately 1.0
+
+
 
 
 

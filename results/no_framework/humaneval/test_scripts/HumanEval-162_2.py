@@ -8,7 +8,7 @@ def string_to_md5(text):
     return md5
 
 # Test the function with the example given in the docstring
-print(string_to_md5('Hello world'))  # Output: '3e25960a79dbc69b674cd4ec67a72c62'
+
 
 def check(candidate):
 

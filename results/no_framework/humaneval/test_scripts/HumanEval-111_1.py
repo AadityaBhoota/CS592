@@ -15,11 +15,11 @@ def histogram(test):
     return result
 
 # Test cases
-print(histogram('a b c'))  # Output: {'a': 1, 'b': 1, 'c': 1}
-print(histogram('a b b a'))  # Output: {'a': 2, 'b': 2}
-print(histogram('a b c a b'))  # Output: {'a': 2, 'b': 2}
-print(histogram('b b b b a'))  # Output: {'b': 4}
-print(histogram(''))  # Output: {}
+
+
+
+
+
 
 def check(candidate):
 

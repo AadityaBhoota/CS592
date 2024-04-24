@@ -18,9 +18,9 @@ def make_palindrome(string: str) -> str:
     return string + string[:-1][::-1]
 
 # Testing the make_palindrome function
-print(make_palindrome(''))    # Output: ''
-print(make_palindrome('cat')) # Output: 'catac'
-print(make_palindrome('cata')) # Output: 'catac'
+
+
+
 
 
 

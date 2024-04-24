@@ -16,10 +16,10 @@ def encrypt(s):
     return encrypted_text
 
 # Test cases
-print(encrypt('hi'))       # Output: 'lm'
-print(encrypt('asdfghjkl')) # Output: 'ewhjklnop'
-print(encrypt('gf'))       # Output: 'kj'
-print(encrypt('et'))       # Output: 'ix'
+
+
+
+
 
 def check(candidate):
 

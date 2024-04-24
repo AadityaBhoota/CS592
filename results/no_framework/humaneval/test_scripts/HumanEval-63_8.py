@@ -6,9 +6,9 @@ def fibfib(n: int, memo={0: 0, 1: 0, 2: 1}):
         return memo[n]
 
 # Test cases
-print(fibfib(1))  # Output: 0
-print(fibfib(5))  # Output: 4
-print(fibfib(8))  # Output: 24
+
+
+
 
 
 

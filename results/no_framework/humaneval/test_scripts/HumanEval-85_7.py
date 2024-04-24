@@ -6,7 +6,7 @@ def add(lst):
     return result
 
 # Test the function
-print(add([4, 2, 6, 7]))  # Output: 2
+
 
 def check(candidate):
 

@@ -21,8 +21,8 @@ def largest_prime_factor(n: int):
     return largest_prime
 
 # Test the function
-print(largest_prime_factor(13195))  # Output: 29
-print(largest_prime_factor(2048))  # Output: 2
+
+
 
 
 

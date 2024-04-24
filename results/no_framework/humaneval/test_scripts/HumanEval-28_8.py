@@ -4,8 +4,8 @@ def concatenate(strings: List[str]) -> str:
     return ''.join(strings)
 
 # Running the test cases
-print(concatenate([]))  # Output: ''
-print(concatenate(['a', 'b', 'c']))  # Output: 'abc'
+
+
 
 
 

@@ -7,10 +7,10 @@ def multiply(a, b):
     return unit_a * unit_b
 
 # Test cases
-print(multiply(148, 412))  # Should return 16
-print(multiply(19, 28))    # Should return 72
-print(multiply(2020, 1851))    # Should return 0
-print(multiply(14, -15))    # Should return 20
+
+
+
+
 
 def check(candidate):
 

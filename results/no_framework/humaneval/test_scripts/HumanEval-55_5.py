@@ -8,9 +8,9 @@ def fib(n: int) -> int:
         return b
 
 # Test cases
-print(fib(10))  # Output: 55
-print(fib(1))   # Output: 1
-print(fib(8))   # Output: 21
+
+
+
 
 
 

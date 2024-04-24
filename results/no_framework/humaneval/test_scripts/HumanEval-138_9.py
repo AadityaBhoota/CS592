@@ -5,9 +5,9 @@ def is_equal_to_sum_even(n):
     return True
 
 # Test cases
-print(is_equal_to_sum_even(4))  # Output: False
-print(is_equal_to_sum_even(6))  # Output: False
-print(is_equal_to_sum_even(8))  # Output: True
+
+
+
 
 def check(candidate):
     assert candidate(4) == False

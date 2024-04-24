@@ -8,9 +8,9 @@ def starts_one_ends(n):
         return count
 
 # Test the function
-print(starts_one_ends(1))  # Output: 1
-print(starts_one_ends(2))  # Output: 18
-print(starts_one_ends(3))  # Output: 162
+
+
+
 
 def check(candidate):
 

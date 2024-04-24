@@ -6,7 +6,7 @@ def string_xor(a: str, b: str) -> str:
 
 
 # Test the function with the example provided in the docstring
-print(string_xor('010', '110'))  # Output: '100'
+
 
 
 

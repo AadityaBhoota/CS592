@@ -10,7 +10,7 @@ def starts_one_ends(n):
 
 # Test the function
 n = 3
-print(starts_one_ends(n))  # Output: 190
+
 
 def check(candidate):
 

@@ -2,10 +2,10 @@ def is_palindrome(text: str) -> bool:
     return text == text[::-1]
 
 # Testing the function with given test cases
-print(is_palindrome(''))     # Output: True
-print(is_palindrome('aba'))  # Output: True
-print(is_palindrome('aaaaa'))  # Output: True
-print(is_palindrome('zbcd'))  # Output: False
+
+
+
+
 
 
 

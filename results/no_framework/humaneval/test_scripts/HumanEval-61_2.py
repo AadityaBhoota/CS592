@@ -12,10 +12,10 @@ def correct_bracketing(brackets: str):
     return len(stack) == 0
 
 # Testing the function with the provided test cases
-print(correct_bracketing("("))     # False
-print(correct_bracketing("()"))    # True
-print(correct_bracketing("(()())"))    # True
-print(correct_bracketing(")(()"))    # False
+
+
+
+
 
 
 

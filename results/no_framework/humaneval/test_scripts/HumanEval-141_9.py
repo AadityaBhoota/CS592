@@ -26,11 +26,11 @@ def file_name_check(file_name):
     return 'Yes'
 
 # Test cases
-print(file_name_check("example.txt"))  # => 'Yes'
-print(file_name_check("1example.dll"))  # => 'No'
-print(file_name_check("image.jpeg"))  # => 'No' (extension not in valid list)
-print(file_name_check("file.with.multiple.dots.txt"))  # => 'No' (more than one dot in the file name)
-print(file_name_check("file1234.txt"))  # => 'No' (more than three digits in the file name)
+
+
+
+
+
 
 def check(candidate):
 

@@ -9,9 +9,9 @@ def starts_one_ends(n):
     return count
 
 # Test the function
-print(starts_one_ends(1))  # Expected output: 2 (1, 10)
-print(starts_one_ends(2))  # Expected output: 20 (10, 11, 12, ..., 19, 21, 31, ..., 91)
-print(starts_one_ends(3))  # Expected output: 200
+
+
+
 
 def check(candidate):
 

@@ -8,8 +8,8 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
 
 
 # Test the function
-print(intersperse([], 4))  # []
-print(intersperse([1, 2, 3], 4))  # [1, 4, 2, 4, 3]
+
+
 
 
 

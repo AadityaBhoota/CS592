@@ -8,9 +8,9 @@ def reverse_delete(s, c):
     return s_without_c, is_palindrome
 
 # Test the function with the given examples
-print(reverse_delete("abcde", "ae"))  # ('bcd', False)
-print(reverse_delete("abcdef", "b"))  # ('acdef', False)
-print(reverse_delete("abcdedcba", "ab"))  # ('cdedc', True)
+
+
+
 
 def check(candidate):
 

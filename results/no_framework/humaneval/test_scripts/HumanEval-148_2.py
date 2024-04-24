@@ -13,9 +13,9 @@ def bf(planet1, planet2):
     return tuple(planets[start_idx+1:end_idx])
 
 # Test cases
-print(bf("Jupiter", "Neptune"))  # ==> ("Saturn", "Uranus")
-print(bf("Earth", "Mercury"))    # ==> ("Venus")
-print(bf("Mercury", "Uranus"))   # ==> ("Venus", "Earth", "Mars", "Jupiter", "Saturn")
+
+
+
 
 def check(candidate):
 

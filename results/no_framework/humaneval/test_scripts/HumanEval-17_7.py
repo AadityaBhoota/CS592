@@ -22,7 +22,7 @@ def parse_music(music_string: str) -> List[int]:
     return beats_list
 
 # Test the function with the provided example
-print(parse_music('o o| .| o| o| .| .| .| .| o o'))  # Output: [4, 2, 1, 2, 2, 1, 1, 1, 1, 4, 4]
+
 
 
 

@@ -19,8 +19,8 @@ def x_or_y(n, x, y):
         return y
 
 # Testing the function
-print(x_or_y(7, 34, 12))  # Output should be 34
-print(x_or_y(15, 8, 5))    # Output should be 5
+
+
 
 def check(candidate):
 

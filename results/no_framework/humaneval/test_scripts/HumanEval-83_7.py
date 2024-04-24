@@ -7,7 +7,7 @@ def starts_one_ends(n):
 
 # Example Usage
 n = 3
-print(starts_one_ends(n))  # Output: 109
+
 
 def check(candidate):
 

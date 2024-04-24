@@ -15,8 +15,8 @@ def words_in_sentence(sentence):
 sentence1 = "This is a test"
 sentence2 = "lets go for swimming"
 
-print(words_in_sentence(sentence1))  # Output: "is"
-print(words_in_sentence(sentence2))  # Output: "go for"
+
+
 
 def check(candidate):
 

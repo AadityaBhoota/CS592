@@ -7,9 +7,9 @@ def smallest_change(arr):
     return total_changes
 
 # Test cases
-print(smallest_change([1,2,3,5,4,7,9,6]))  # Output should be 4
-print(smallest_change([1, 2, 3, 4, 3, 2, 2]))  # Output should be 1
-print(smallest_change([1, 2, 3, 2, 1]))  # Output should be 0
+
+
+
 
 def check(candidate):
 

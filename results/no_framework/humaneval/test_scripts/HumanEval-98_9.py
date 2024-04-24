@@ -7,9 +7,9 @@ def count_upper(s):
     return count
 
 # Test cases
-print(count_upper('aBCdEf'))  # Output: 1
-print(count_upper('abcdefg'))  # Output: 0
-print(count_upper('dBBE'))  # Output: 0
+
+
+
 
 def check(candidate):
 

@@ -10,7 +10,7 @@ def sort_numbers(numbers: str) -> str:
 
 # Test the function
 result = sort_numbers('three one five')
-print(result)  # Output: 'one three five'
+
 
 
 

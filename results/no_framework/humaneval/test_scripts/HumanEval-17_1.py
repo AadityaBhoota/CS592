@@ -11,7 +11,7 @@ def parse_music(music_string: str) -> List[int]:
     return [durations[note] for note in notes]
 
 # Test the function with the provided example
-print(parse_music('o o| .| o| o| .| .| .| .| o o'))
+
 
 
 

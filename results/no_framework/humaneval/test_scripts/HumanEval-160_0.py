@@ -18,7 +18,7 @@ def do_algebra(operators, operands):
 # Example usage
 operators = ['+', '*', '-']
 operands = [2, 3, 4, 5]
-print(do_algebra(operators, operands))  # Output: 9
+
 
 def check(candidate):
 

@@ -21,8 +21,8 @@ def minPath(grid, k):
     return min_path_dfs(start_pos, k - 1, [min_value])
 
 # Test cases
-print(minPath([[1,2,3], [4,5,6], [7,8,9]], 3))  # Output: [1, 2, 1]
-print(minPath([[5,9,3], [4,1,6], [7,8,2]], 1))  # Output: [1]
+
+
 
 def check(candidate):
 

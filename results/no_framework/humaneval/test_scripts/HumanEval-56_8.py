@@ -14,10 +14,10 @@ def correct_bracketing(brackets: str):
         return True
 
 # Testing the function with the provided test cases
-print(correct_bracketing("<"))    # False
-print(correct_bracketing("<>"))    # True
-print(correct_bracketing("<<><>>"))    # True
-print(correct_bracketing("><<>"))    # False
+
+
+
+
 
 
 

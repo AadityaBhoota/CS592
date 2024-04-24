@@ -8,9 +8,9 @@ def strange_sort_list(lst):
     return sorted_list
 
 # Test cases
-print(strange_sort_list([1, 2, 3, 4]))  # [1, 4, 2, 3]
-print(strange_sort_list([5, 5, 5, 5]))  # [5, 5, 5, 5]
-print(strange_sort_list([]))  # []
+
+
+
 
 def check(candidate):
 

@@ -8,7 +8,7 @@ def Strongest_Extension(class_name, extensions):
     return f"{class_name}.{strongest_ext}"
 
 # Test the function
-print(Strongest_Extension('my_class', ['AA', 'Be', 'CC']))  # Expect 'my_class.AA'
+
 
 def check(candidate):
 

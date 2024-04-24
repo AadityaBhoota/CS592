@@ -10,10 +10,10 @@ def encrypt(s):
     return encrypted_text
 
 # Test the function with the provided examples
-print(encrypt('hi'))         # Output: 'lm'
-print(encrypt('asdfghjkl'))  # Output: 'ewhjklnop'
-print(encrypt('gf'))         # Output: 'kj'
-print(encrypt('et'))         # Output: 'ix'
+
+
+
+
 
 def check(candidate):
 

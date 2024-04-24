@@ -7,11 +7,11 @@ def sum_squares(lst):
     return total
 
 # Test cases
-print(sum_squares([1, 2, 3]))  # Output: 14
-print(sum_squares([1, 4, 9]))  # Output: 98
-print(sum_squares([1, 3, 5, 7]))  # Output: 84
-print(sum_squares([1.4, 4.2, 0]))  # Output: 29
-print(sum_squares([-2.4, 1, 1]))  # Output: 6
+
+
+
+
+
 
 def check(candidate):
 

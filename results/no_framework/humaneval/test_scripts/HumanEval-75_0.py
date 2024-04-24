@@ -18,7 +18,7 @@ def is_multiply_prime(a):
     return prime_count == 3
 
 # Test the function
-print(is_multiply_prime(30))  # Output should be True
+
 
 def check(candidate):
 

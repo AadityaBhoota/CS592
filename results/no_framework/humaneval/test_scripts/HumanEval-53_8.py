@@ -8,8 +8,8 @@ def add(x: int, y: int):
     return x + y
 
 # Test the function with example inputs
-print(add(2, 3))  # Output: 5
-print(add(5, 7))  # Output: 12
+
+
 
 
 

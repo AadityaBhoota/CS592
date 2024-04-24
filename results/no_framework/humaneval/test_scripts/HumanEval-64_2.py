@@ -20,7 +20,7 @@ assert vowels_count("banana") == 3
 assert vowels_count("python") == 1
 assert vowels_count("sky") == 1
 
-print("All test cases passed!")
+
 
 def check(candidate):
 

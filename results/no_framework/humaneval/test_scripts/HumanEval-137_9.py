@@ -23,10 +23,10 @@ def compare_one(a, b):
         return b
 
 # Testing the function with provided test cases
-print(compare_one(1, 2.5))  # ➞ 2.5
-print(compare_one(1, "2,3"))  # ➞ "2,3"
-print(compare_one("5,1", "6"))  # ➞ "6"
-print(compare_one("1", 1))  # ➞ None
+
+
+
+
 
 def check(candidate):
 

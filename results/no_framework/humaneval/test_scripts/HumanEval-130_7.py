@@ -21,7 +21,7 @@ def tri(n):
 
 # Test the function
 n = 5
-print(tri(n))  # Output: [3, 2, 8, 9, 32, 23]
+
 
 def check(candidate):
 

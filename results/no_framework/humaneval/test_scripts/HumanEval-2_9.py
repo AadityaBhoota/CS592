@@ -6,7 +6,7 @@ def truncate_number(number: float) -> float:
 
 # Test the function with the given example
 result = truncate_number(3.5)
-print(result)  # Output: 0.5
+
 
 
 

@@ -13,9 +13,9 @@ def fibfib(n: int) -> int:
         return fib_cache[2]
 
 # Testing the function with the provided test cases
-print(fibfib(1))  # Output: 0
-print(fibfib(5))  # Output: 4
-print(fibfib(8))  # Output: 24
+
+
+
 
 
 

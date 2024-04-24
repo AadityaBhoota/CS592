@@ -8,8 +8,8 @@ def largest_prime_factor(n: int):
     return n
 
 # Test cases
-print(largest_prime_factor(13195))  # Output: 29
-print(largest_prime_factor(2048))   # Output: 2
+
+
 
 
 

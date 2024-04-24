@@ -3,8 +3,8 @@ def strlen(string: str) -> int:
     return len(string)
 
 # Test cases
-print(strlen(''))  # Output: 0
-print(strlen('abc'))  # Output: 3
+
+
 
 
 

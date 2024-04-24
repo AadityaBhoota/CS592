@@ -6,8 +6,8 @@ def choose_num(x, y):
     return max_even
 
 # Test cases
-print(choose_num(12, 15))  # Output: 14
-print(choose_num(13, 12))  # Output: -1
+
+
 
 def check(candidate):
 

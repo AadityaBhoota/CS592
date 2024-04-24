@@ -11,9 +11,9 @@ def fibfib(n: int):
     return fibfib_values[n]
 
 # Test cases
-print(fibfib(1))  # Output: 0
-print(fibfib(5))  # Output: 4
-print(fibfib(8))  # Output: 24
+
+
+
 
 
 

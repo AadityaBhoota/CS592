@@ -8,9 +8,9 @@ def max_fill(grid, capacity):
     return lowers
 
 # Test the function with the given examples
-print(max_fill([[0,0,1,0], [0,1,0,0], [1,1,1,1]], 1))  # Output: 6
-print(max_fill([[0,0,1,1], [0,0,0,0], [1,1,1,1], [0,1,1,1]], 2))  # Output: 5
-print(max_fill([[0,0,0], [0,0,0]], 5))  # Output: 0
+
+
+
 
 def check(candidate):
 

@@ -17,10 +17,10 @@ def get_largest_prime_sum(lst):
     return sum_of_digits(largest_prime)
 
 lst = [0,3,2,1,3,5,7,4,5,5,5,2,181,32,4,32,3,2,32,324,4,3]
-print(get_largest_prime_sum(lst))  # Output: 10
+
 
 lst = [1,0,1,8,2,4597,2,1,3,40,1,2,1,2,4,2,5,1]
-print(get_largest_prime_sum(lst))  # Output: 25
+
 
 # You can test with other lists as well
 

@@ -14,7 +14,7 @@ def Strongest_Extension(class_name, extensions):
     return f"{class_name}.{strongest_extension}"
 
 # Example usage
-print(Strongest_Extension('my_class', ['AA', 'Be', 'CC']))  # Output: 'my_class.AA'
+
 
 def check(candidate):
 

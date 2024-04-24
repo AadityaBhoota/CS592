@@ -8,7 +8,7 @@ def starts_one_ends(n):
 # Test the function
 n = 3
 result = starts_one_ends(n)
-print(result)
+
 
 def check(candidate):
 

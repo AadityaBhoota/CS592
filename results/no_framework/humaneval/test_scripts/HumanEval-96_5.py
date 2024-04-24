@@ -11,12 +11,12 @@ def count_up_to(n):
     return primes
 
 # Testing the function with the provided examples
-print(count_up_to(5))  # Output: [2, 3]
-print(count_up_to(11))  # Output: [2, 3, 5, 7]
-print(count_up_to(0))  # Output: []
-print(count_up_to(20))  # Output: [2, 3, 5, 7, 11, 13, 17, 19]
-print(count_up_to(1))  # Output: []
-print(count_up_to(18))  # Output: [2, 3, 5, 7, 11, 13, 17]
+
+
+
+
+
+
 
 def check(candidate):
 

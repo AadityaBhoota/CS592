@@ -12,8 +12,8 @@ def median(l: list):
         return l_sorted[mid]
 
 # Test cases
-print(median([3, 1, 2, 4, 5]))  # Output: 3
-print(median([-10, 4, 6, 1000, 10, 20]))  # Output: 15.0
+
+
 
 
 

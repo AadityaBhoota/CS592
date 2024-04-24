@@ -5,8 +5,8 @@ def unique_digits(x):
     return sorted([num for num in x if has_no_even_digit(num)])
 
 # Test the function
-print(unique_digits([15, 33, 1422, 1]))  # [1, 15, 33]
-print(unique_digits([152, 323, 1422, 10]))  # []
+
+
 
 def check(candidate):
 

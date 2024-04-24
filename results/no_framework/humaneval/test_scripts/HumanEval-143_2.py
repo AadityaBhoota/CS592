@@ -17,8 +17,8 @@ def words_in_sentence(sentence):
     return ' '.join(prime_words)
 
 # Test the function with the given examples
-print(words_in_sentence("This is a test"))  # Output: "is"
-print(words_in_sentence("lets go for swimming"))  # Output: "go for"
+
+
 
 def check(candidate):
 

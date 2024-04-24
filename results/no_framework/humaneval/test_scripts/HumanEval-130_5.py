@@ -11,7 +11,7 @@ def tri(n):
     return tribonacci
 
 # Test the function
-print(tri(3))  # Output: [0, 3, 2, 8]
+
 
 def check(candidate):
 

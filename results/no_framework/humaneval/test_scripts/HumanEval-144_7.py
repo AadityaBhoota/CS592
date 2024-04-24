@@ -7,9 +7,9 @@ def simplify(x, n):
     return result.is_integer()
 
 # Test cases
-print(simplify("1/5", "5/1"))  # Output should be True
-print(simplify("1/6", "2/1"))  # Output should be False
-print(simplify("7/10", "10/2"))  # Output should be False
+
+
+
 
 def check(candidate):
 

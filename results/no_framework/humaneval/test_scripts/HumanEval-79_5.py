@@ -3,8 +3,8 @@ def decimal_to_binary(decimal):
     return f"db{binary_str}db"
 
 # Test the function with examples
-print(decimal_to_binary(15))  # Output: "db1111db"
-print(decimal_to_binary(32))  # Output: "db100000db"
+
+
 
 def check(candidate):
 

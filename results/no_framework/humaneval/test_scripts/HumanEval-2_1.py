@@ -4,7 +4,7 @@ def truncate_number(number: float) -> float:
     return decimal_part
 
 # Test the function
-print(truncate_number(3.5))  # Output: 0.5
+
 
 
 

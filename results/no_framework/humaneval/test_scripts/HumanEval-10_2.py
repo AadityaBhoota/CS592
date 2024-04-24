@@ -22,10 +22,10 @@ def make_palindrome(string: str) -> str:
 
 
 # Testing the make_palindrome function
-print(make_palindrome(''))  # Output: ''
-print(make_palindrome('cat'))  # Output: 'catac'
-print(make_palindrome('cata'))  # Output: 'catac'
-print(make_palindrome('race'))  # Output: 'racecar'
+
+
+
+
 
 
 

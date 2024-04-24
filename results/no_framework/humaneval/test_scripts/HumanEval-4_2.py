@@ -18,7 +18,7 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
 
 
 # Test the function with the example provided
-print(mean_absolute_deviation([1.0, 2.0, 3.0, 4.0]))  # Output should be 1.0
+
 
 
 

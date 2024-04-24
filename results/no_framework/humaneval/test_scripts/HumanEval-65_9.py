@@ -10,11 +10,11 @@ def circular_shift(x, shift):
         return x_str[::-1]
 
 # Test cases
-print(circular_shift(12, 1))  # Output: "21"
-print(circular_shift(12, 2))  # Output: "12"
-print(circular_shift(12345, 3))  # Output: "34512"
-print(circular_shift(9876, 6))  # Output: "6789"
-print(circular_shift(100, -1))  # Output: "001"
+
+
+
+
+
 
 def check(candidate):
 

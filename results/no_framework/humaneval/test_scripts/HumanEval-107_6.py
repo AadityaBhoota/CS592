@@ -16,10 +16,10 @@ def even_odd_palindrome(n):
 
 # Test the function
 n = 3
-print(even_odd_palindrome(n))  # Output: (1, 2)
+
 
 n = 12
-print(even_odd_palindrome(n))  # Output: (4, 6)
+
 
 def check(candidate):
 

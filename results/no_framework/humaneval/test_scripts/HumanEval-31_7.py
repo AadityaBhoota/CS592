@@ -13,13 +13,13 @@ def is_prime(n):
     return True
 
 # Test cases
-print(is_prime(6))   # False
-print(is_prime(101)) # True
-print(is_prime(11))  # True
-print(is_prime(13441)) # True
-print(is_prime(61))  # True
-print(is_prime(4))   # False
-print(is_prime(1))   # False
+
+
+
+
+
+
+
 
 
 

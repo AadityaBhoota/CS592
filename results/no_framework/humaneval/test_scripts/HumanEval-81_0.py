@@ -28,7 +28,7 @@ def numerical_letter_grade(grades):
     return letter_grades
 
 # Test the function
-print(numerical_letter_grade([4.0, 3, 1.7, 2, 3.5]))  # Output: ['A+', 'B', 'C-', 'C', 'A-']
+
 
 def check(candidate):
 

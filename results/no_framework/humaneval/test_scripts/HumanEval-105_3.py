@@ -11,13 +11,13 @@ def by_length(arr):
 
 # Test cases
 arr1 = [2, 1, 1, 4, 5, 8, 2, 3]
-print(by_length(arr1))  # Output: ['Eight', 'Five', 'Four', 'Three', 'Two', 'Two', 'One', 'One']
+
 
 arr2 = []
-print(by_length(arr2))  # Output: []
+
 
 arr3 = [1, -1, 55]
-print(by_length(arr3))  # Output: ['One']
+
 
 def check(candidate):
 

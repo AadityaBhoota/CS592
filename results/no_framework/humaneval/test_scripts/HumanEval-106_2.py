@@ -14,7 +14,7 @@ def f(n):
     return result
 
 # Test the function with the given example
-print(f(5))  # Output: [1, 2, 6, 24, 15]
+
 
 def check(candidate):
 

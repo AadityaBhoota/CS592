@@ -21,7 +21,7 @@ assert vowels_count("programming") == 3
 assert vowels_count("algorithm") == 2
 assert vowels_count("PYTHON") == 2
 
-print("All tests pass!")
+
 
 def check(candidate):
 

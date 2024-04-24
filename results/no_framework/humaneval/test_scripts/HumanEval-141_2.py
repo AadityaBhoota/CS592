@@ -19,10 +19,10 @@ def file_name_check(file_name):
     return 'Yes'
 
 # Test cases
-print(file_name_check("example.txt"))     # => 'Yes'
-print(file_name_check("1example.dll"))    # => 'No'
-print(file_name_check("file_name.txt"))   # => 'No'
-print(file_name_check("example"))         # => 'No'
+
+
+
+
 
 def check(candidate):
 

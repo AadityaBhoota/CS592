@@ -14,7 +14,7 @@ def get_odd_collatz(n):
 
 # Test the function
 result = get_odd_collatz(5)
-print(result)  # Output: [1, 5]
+
 
 def check(candidate):
 

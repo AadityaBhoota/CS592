@@ -16,10 +16,10 @@ def pluck(arr):
     return [smallest_even_value, smallest_index]
 
 # Test cases
-print(pluck([4, 2, 3]))  # Output: [2, 1]
-print(pluck([1, 2, 3]))  # Output: [2, 1]
-print(pluck([]))  # Output: []
-print(pluck([5, 0, 3, 0, 4, 2]))  # Output: [0, 1]
+
+
+
+
 
 def check(candidate):
 

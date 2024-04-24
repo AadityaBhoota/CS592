@@ -6,7 +6,7 @@ def truncate_number(number: float) -> float:
     return float('0.' + decimal_part)
 
 # Test the function with the example provided in the docstring
-print(truncate_number(3.5))  # Output: 0.5
+
 
 
 

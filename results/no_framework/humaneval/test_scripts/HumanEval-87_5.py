@@ -8,15 +8,15 @@ def get_row(lst, x):
     return result
 
 # Testing the examples provided
-print(get_row([
+
   [1,2,3,4,5,6],
   [1,2,3,4,1,6],
   [1,2,3,4,5,1]
 ], 1))  # Output: [(0, 0), (1, 4), (1, 0), (2, 5), (2, 0)]
 
-print(get_row([], 1))  # Output: []
 
-print(get_row([[], [1], [1, 2, 3]], 3))  # Output: [(2, 2)]
+
+
 
 def check(candidate):
 

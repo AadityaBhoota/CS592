@@ -16,8 +16,8 @@ def encode(message):
     return encoded_message
 
 # Test cases
-print(encode('test'))  # 'TGST'
-print(encode('This is a message'))  # 'tHKS KS C MGSSCGG'
+
+
 
 def check(candidate):
 

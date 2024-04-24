@@ -17,9 +17,9 @@ def longest(strings: List[str]) -> Optional[str]:
 
 
 # Test cases
-print(longest([]))  # None
-print(longest(['a', 'b', 'c']))  # 'a'
-print(longest(['a', 'bb', 'ccc']))  # 'ccc'
+
+
+
 
 
 

@@ -18,8 +18,8 @@ def even_odd_count(num):
     return (even_count, odd_count)
 
 # Test cases
-print(even_odd_count(-12))  # Should return (1, 1)
-print(even_odd_count(123))  # Should return (1, 2)
+
+
 
 def check(candidate):
 

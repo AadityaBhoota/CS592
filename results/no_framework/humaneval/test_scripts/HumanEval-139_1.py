@@ -9,7 +9,7 @@ def special_factorial(n):
     return result
 
 # Test the function
-print(special_factorial(4))  # Output: 288
+
 
 def check(candidate):
 

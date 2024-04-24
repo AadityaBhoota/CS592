@@ -9,9 +9,9 @@ def count_nums(arr):
     return count
 
 # Test cases
-print(count_nums([]))        # Output should be 0
-print(count_nums([-1, 11, -11]))  # Output should be 1
-print(count_nums([1, 1, 2]))       # Output should be 3
+
+
+
 
 def check(candidate):
 

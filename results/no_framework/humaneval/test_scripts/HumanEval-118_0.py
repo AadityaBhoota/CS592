@@ -9,10 +9,10 @@ def get_closest_vowel(word):
     return ""
 
 # Test cases
-print(get_closest_vowel("yogurt"))  # Output: "u"
-print(get_closest_vowel("FULL"))    # Output: "U"
-print(get_closest_vowel("quick"))   # Output: ""
-print(get_closest_vowel("ab"))      # Output: ""
+
+
+
+
 
 def check(candidate):
 

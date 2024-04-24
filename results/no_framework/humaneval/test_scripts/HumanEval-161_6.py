@@ -14,9 +14,9 @@ def solve(s):
     return new_str
 
 # Test cases
-print(solve("1234"))  # Output: "4321"
-print(solve("ab"))    # Output: "AB"
-print(solve("#a@C"))  # Output: "#A@c"
+
+
+
 
 def check(candidate):
 

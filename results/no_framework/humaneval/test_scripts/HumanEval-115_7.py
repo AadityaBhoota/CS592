@@ -18,15 +18,15 @@ def max_fill(grid, capacity):
 # Test the function with the provided examples
 grid1 = [[0,0,1,0], [0,1,0,0], [1,1,1,1]]
 capacity1 = 1
-print(max_fill(grid1, capacity1))  # Output: 6
+
 
 grid2 = [[0,0,1,1], [0,0,0,0], [1,1,1,1], [0,1,1,1]]
 capacity2 = 2
-print(max_fill(grid2, capacity2))  # Output: 5
+
 
 grid3 = [[0,0,0], [0,0,0]]
 capacity3 = 5
-print(max_fill(grid3, capacity3))  # Output: 0
+
 
 def check(candidate):
 

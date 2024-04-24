@@ -10,10 +10,10 @@ def correct_bracketing(brackets: str) -> bool:
     return count == 0
 
 # Test cases
-print(correct_bracketing("("))      # False
-print(correct_bracketing("()"))     # True
-print(correct_bracketing("(()())")) # True
-print(correct_bracketing(")(()"))   # False
+
+
+
+
 
 
 

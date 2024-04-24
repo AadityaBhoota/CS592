@@ -18,8 +18,8 @@ def tri(n):
     return tribonacci_sequence
 
 # Test the tri function
-print(tri(3))  # Output: [3, 3, 3, 6]
-print(tri(7))  # Output: [3, 3, 3, 6, 9, 15, 24, 39]
+
+
 
 def check(candidate):
 

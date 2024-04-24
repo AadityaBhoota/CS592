@@ -8,9 +8,9 @@ def solve(N):
     return sum_binary
 
 # Test cases
-print(solve(1000))  # Output: '1'
-print(solve(150))   # Output: '110'
-print(solve(147))   # Output: '1100'
+
+
+
 
 def check(candidate):
 

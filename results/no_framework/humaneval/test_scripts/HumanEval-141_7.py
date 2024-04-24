@@ -22,8 +22,8 @@ def file_name_check(file_name):
     return 'Yes'
 
 # Test cases
-print(file_name_check("example.txt"))  # Output: Yes
-print(file_name_check("1example.dll")) # Output: No
+
+
 
 def check(candidate):
 

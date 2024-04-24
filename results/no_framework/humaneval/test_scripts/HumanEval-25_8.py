@@ -12,9 +12,9 @@ def factorize(n: int) -> List[int]:
     return factors
 
 # Testing the function with the provided examples
-print(factorize(8))  # Output: [2, 2, 2]
-print(factorize(25)) # Output: [5, 5]
-print(factorize(70)) # Output: [2, 5, 7]
+
+
+
 
 
 

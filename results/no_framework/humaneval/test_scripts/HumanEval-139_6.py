@@ -12,7 +12,7 @@ def special_factorial(n):
 
 # Test the function
 n = 4
-print(special_factorial(n))  # Output: 288
+
 
 def check(candidate):
 

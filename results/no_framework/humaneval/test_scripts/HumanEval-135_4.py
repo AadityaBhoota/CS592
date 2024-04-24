@@ -5,8 +5,8 @@ def can_arrange(arr):
     return -1
 
 # Test the function with the given examples
-print(can_arrange([1, 2, 4, 3, 5]))  # Output should be 3
-print(can_arrange([1, 2, 3]))  # Output should be -1
+
+
 
 def check(candidate):
 

@@ -13,7 +13,7 @@ def tri(n):
     return sequence
 
 # Test the function
-print(tri(3))  # Output: [3, 2, 8]
+
 
 def check(candidate):
 

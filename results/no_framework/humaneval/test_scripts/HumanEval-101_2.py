@@ -9,8 +9,8 @@ def words_string(s):
     return cleaned_words
 
 # Test cases
-print(words_string("Hi, my name is John"))  # ["Hi", "my", "name", "is", "John"]
-print(words_string("One, two, three, four, five, six"))  # ["One", "two", "three", "four", "five", "six"]
+
+
 
 def check(candidate):
 

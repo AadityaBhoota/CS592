@@ -12,8 +12,8 @@ def is_bored(S):
     return count
 
 # Test cases
-print(is_bored("Hello world"))
-print(is_bored("The sky is blue. The sun is shining. I love this weather"))
+
+
 
 def check(candidate):
 

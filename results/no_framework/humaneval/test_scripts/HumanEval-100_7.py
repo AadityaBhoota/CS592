@@ -10,7 +10,7 @@ def make_a_pile(n):
     return pile
 
 # Test the function
-print(make_a_pile(3))  # Output: [3, 5, 7]
+
 
 def check(candidate):
 

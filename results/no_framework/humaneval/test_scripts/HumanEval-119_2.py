@@ -11,8 +11,8 @@ def match_parens(lst):
     return 'Yes' if count == 0 else 'No'
 
 # Test cases
-print(match_parens(['()(', ')']))  # Output: 'Yes'
-print(match_parens([')', ')']))     # Output: 'No'
+
+
 
 def check(candidate):
 

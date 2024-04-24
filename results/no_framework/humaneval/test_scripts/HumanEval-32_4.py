@@ -28,8 +28,8 @@ def find_zero(xs: list):
             step = min(abs(step), 0.05 * largest_coeff)
 
 # Test cases
-print(find_zero([1, 2]))  # Output: -0.5
-print(find_zero([-6, 11, -6, 1]))  # Output: 1.0
+
+
 
 
 

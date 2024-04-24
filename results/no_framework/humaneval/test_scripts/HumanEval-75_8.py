@@ -19,7 +19,7 @@ def is_multiply_prime(a):
     return False
 
 # Test the function
-print(is_multiply_prime(30))  # Output: True
+
 
 def check(candidate):
 

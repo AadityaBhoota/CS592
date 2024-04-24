@@ -5,7 +5,7 @@ def all_prefixes(string: str) -> List[str]:
     return result
 
 # Test the function with the example given
-print(all_prefixes('abc'))  # Output: ['a', 'ab', 'abc']
+
 
 
 

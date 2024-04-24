@@ -16,7 +16,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
 
 # Test the function
 result = parse_nested_parens('(()()) ((())) () ((())()())')
-print(result)
+
 
 
 

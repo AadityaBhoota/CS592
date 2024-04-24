@@ -12,9 +12,9 @@ def count_nums(arr):
     return count
 
 # Test cases
-print(count_nums([]) == 0)
-print(count_nums([-1, 11, -11]) == 1)
-print(count_nums([1, 1, 2]) == 3)
+
+
+
 
 def check(candidate):
 

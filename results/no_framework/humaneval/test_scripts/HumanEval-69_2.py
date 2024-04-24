@@ -11,9 +11,9 @@ def search(lst):
     return result
 
 # Test cases
-print(search([4, 1, 2, 2, 3, 1]))  # Output should be 2
-print(search([1, 2, 2, 3, 3, 3, 4, 4, 4]))  # Output should be 3
-print(search([5, 5, 4, 4, 4]))  # Output should be -1
+
+
+
 
 def check(candidate):
 

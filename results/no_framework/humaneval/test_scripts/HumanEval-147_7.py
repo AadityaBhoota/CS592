@@ -10,7 +10,7 @@ def get_max_triples(n):
 
 # Test the function
 n = 5
-print(get_max_triples(n))  # Output: 1
+
 
 def check(candidate):
 

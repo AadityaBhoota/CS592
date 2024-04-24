@@ -11,7 +11,7 @@ def sort_numbers(numbers: str) -> str:
 
 
 # Test the function
-print(sort_numbers('three one five'))  # Output: 'one three five'
+
 
 
 

@@ -8,8 +8,8 @@ def order_by_points(nums):
     return sorted(nums, key=lambda x: (sum_of_digits(x), nums.index(x)))
 
 # Test the function with the example cases
-print(order_by_points([1, 11, -1, -11, -12]))  # Output: [-1, -11, 1, -12, 11]
-print(order_by_points([]))  # Output: []
+
+
 
 def check(candidate):
 

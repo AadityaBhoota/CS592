@@ -16,11 +16,11 @@ def prime_fib(n: int):
     return fib[i]
 
 # Testing the function
-print(prime_fib(1))  # 2
-print(prime_fib(2))  # 3
-print(prime_fib(3))  # 5
-print(prime_fib(4))  # 13
-print(prime_fib(5))  # 89
+
+
+
+
+
 
 
 

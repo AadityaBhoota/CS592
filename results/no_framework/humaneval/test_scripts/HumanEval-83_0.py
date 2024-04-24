@@ -9,7 +9,7 @@ def starts_one_ends(n):
     return count
 
 # Test the function with n = 2
-print(starts_one_ends(2))  # Output should be 19
+
 
 def check(candidate):
 

@@ -28,8 +28,8 @@ def poly_derivative(xs: list, x: float):
     return sum([i * coeff * math.pow(x, i - 1) for i, coeff in enumerate(xs) if i != 0])
 
 # Example usage
-print(round(find_zero([1, 2]), 2))  # Expecting: -0.5
-print(round(find_zero([-6, 11, -6, 1]), 2))  # Expecting: 1.0
+
+
 
 
 

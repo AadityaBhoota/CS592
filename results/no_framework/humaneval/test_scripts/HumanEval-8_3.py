@@ -10,8 +10,8 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     return total_sum, total_product
 
 # Test cases
-print(sum_product([]))  # (0, 1)
-print(sum_product([1, 2, 3, 4]))  # (10, 24)
+
+
 
 
 

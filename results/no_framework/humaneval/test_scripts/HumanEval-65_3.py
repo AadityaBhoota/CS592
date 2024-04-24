@@ -11,8 +11,8 @@ def circular_shift(x, shift):
         return x_str[-shift:] + x_str[:-shift]
 
 # Test cases
-print(circular_shift(12, 1))  # Output: "21"
-print(circular_shift(12, 2))  # Output: "12"
+
+
 
 def check(candidate):
 

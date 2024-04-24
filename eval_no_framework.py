@@ -1,4 +1,5 @@
 import json
+import re
 from typing import List
 
 import openai
@@ -44,6 +45,8 @@ async def prompt_openai(prompt: str, kidx=0):
     except:
         # not wrapped ```python, maybe the entire output is the code
         code_sol = sol
+    # remove outer level print statements
+    re.sub(r"\nprint(.)*", "\n", code_sol)
     print("onto", kidx)
     return code_sol
 
@@ -63,7 +66,7 @@ async def batch_prompt_openai(prompts: List[str], k=3) -> List[List[str]]:
     return code_sols
 
 
-async def experiment(dataset_path: str, results_dir: str, experiment_name: str, k=10, batch_size=5, load_from_file=False):
+async def experiment(dataset, results_dir: str, experiment_name: str, k=10, batch_size=5, load_from_file=False):
     # create results dir if not exist
     Path(results_dir).mkdir(parents=True, exist_ok=True)
     test_script_dir = os.path.join(results_dir, "test_scripts")
@@ -71,14 +74,15 @@ async def experiment(dataset_path: str, results_dir: str, experiment_name: str, 
 
     global dataset_len
     print("Loading dataset...")
-    dataset = load_humaneval_dataset(dataset_path)
+    # dataset = load_humaneval_dataset(dataset_path)
     dataset_len = len(dataset)
     prompts = [task["prompt"] for task in dataset]
 
     if load_from_file:
         print("Loading sols from file...")
-        with open(os.path.join(results_dir, "_sols.json"), "w") as f:
+        with open(os.path.join(results_dir, "_sols.json"), "r") as f:
             batch_code_sols = json.load(f)
+            batch_code_sols = list(batch_code_sols.values())
     else:
         print("Batch prompting...")
         batch_code_sols = []
@@ -144,12 +148,13 @@ async def experiment(dataset_path: str, results_dir: str, experiment_name: str, 
     
     
 async def main():
+    dataset = load_humaneval_dataset("./data/HumanEval.jsonl")
     await experiment(
-        dataset_path="./data/HumanEval.jsonl",
+        dataset,
         results_dir="./results/no_framework/humaneval/",
         experiment_name="HumanEval (no framework)",
         k=10,
-        load_from_file=False
+        load_from_file=True
     )
 
 if __name__ == "__main__":

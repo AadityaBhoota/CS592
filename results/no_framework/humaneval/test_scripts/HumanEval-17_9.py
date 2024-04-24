@@ -10,7 +10,7 @@ def parse_music(music_string: str) -> List[int]:
     return [note_duration[n] for n in notes]
 
 # Test the function
-print(parse_music('o o| .| o| o| .| .| .| .| o o'))
+
 
 
 

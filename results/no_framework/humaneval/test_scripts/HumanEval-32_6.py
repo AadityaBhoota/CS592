@@ -36,8 +36,8 @@ def find_zero(xs: list):
 
 
 # Test cases
-print(round(find_zero([1, 2]), 2))  # Output: -0.5
-print(round(find_zero([-6, 11, -6, 1]), 2))  # Output: 1.0
+
+
 
 
 

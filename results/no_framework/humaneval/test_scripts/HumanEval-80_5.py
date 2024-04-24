@@ -9,12 +9,12 @@ def is_happy(s):
     return True
 
 # Test cases
-print(is_happy("a"))  # False
-print(is_happy("aa"))  # False
-print(is_happy("abcd"))  # True
-print(is_happy("aabb"))  # False
-print(is_happy("adb"))  # True
-print(is_happy("xyy"))  # False
+
+
+
+
+
+
 
 def check(candidate):
 

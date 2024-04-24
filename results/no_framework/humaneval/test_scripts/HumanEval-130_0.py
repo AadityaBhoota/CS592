@@ -16,8 +16,8 @@ def tri(n):
     return seq
 
 # Examples
-print(tri(3))  # Output: [3, 2, 4, 10]
-print(tri(5))  # Output: [3, 2, 4, 10, 17, 31]
+
+
 
 def check(candidate):
 

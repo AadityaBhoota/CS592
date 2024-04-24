@@ -13,8 +13,8 @@ def minSubArraySum(nums):
     return min_sum
 
 # Test cases
-print(minSubArraySum([2, 3, 4, 1, 2, 4]))  # Output: 1
-print(minSubArraySum([-1, -2, -3]))         # Output: -6
+
+
 
 def check(candidate):
 

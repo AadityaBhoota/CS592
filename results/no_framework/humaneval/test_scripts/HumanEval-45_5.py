@@ -13,7 +13,7 @@ def triangle_area(a, h):
     return area
 
 # Test the function
-print(triangle_area(5, 3))  # Output: 7.5
+
 
 
 

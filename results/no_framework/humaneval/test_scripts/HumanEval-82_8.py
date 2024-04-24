@@ -13,10 +13,10 @@ def prime_length(string):
     return is_prime(length)
 
 # Test examples
-print(prime_length('Hello'))  # True
-print(prime_length('abcdcba'))  # True
-print(prime_length('kittens'))  # True
-print(prime_length('orange'))  # False
+
+
+
+
 
 def check(candidate):
 

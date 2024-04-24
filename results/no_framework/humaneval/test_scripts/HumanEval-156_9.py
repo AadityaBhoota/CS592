@@ -22,7 +22,7 @@ assert int_to_mini_roman(19) == 'xix'
 assert int_to_mini_roman(152) == 'clii'
 assert int_to_mini_roman(426) == 'cdxxvi'
 
-print("All test cases passed successfully.")
+
 
 def check(candidate):
 

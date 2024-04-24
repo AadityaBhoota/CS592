@@ -5,7 +5,7 @@ def car_race_collision(n: int):
 
 # Test the function with n = 5
 n = 5
-print(car_race_collision(n))  # Output: 10
+
 
 
 

@@ -8,8 +8,8 @@ def right_angle_triangle(a, b, c):
         return False
 
 # Test cases
-print(right_angle_triangle(3, 4, 5))  # True
-print(right_angle_triangle(1, 2, 3))  # False
+
+
 
 def check(candidate):
 

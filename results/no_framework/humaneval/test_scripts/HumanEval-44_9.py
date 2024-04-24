@@ -13,9 +13,9 @@ def change_base(x: int, base: int) -> str:
     return result
 
 # Testing the function
-print(change_base(8, 3))  # '22'
-print(change_base(8, 2))  # '1000'
-print(change_base(7, 2))  # '111'
+
+
+
 
 
 

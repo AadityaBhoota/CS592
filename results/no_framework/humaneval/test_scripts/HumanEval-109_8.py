@@ -13,8 +13,8 @@ def move_one_ball(arr):
     return False
 
 # Test Cases
-print(move_one_ball([3, 4, 5, 1, 2]))  # Output: True
-print(move_one_ball([3, 5, 4, 1, 2]))  # Output: False
+
+
 
 def check(candidate):
 

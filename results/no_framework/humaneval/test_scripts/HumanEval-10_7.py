@@ -15,9 +15,9 @@ def make_palindrome(string: str) -> str:
     return string + string[:len(string) - i][::-1]
 
 # Test cases
-print(make_palindrome(''))      # ''
-print(make_palindrome('cat'))   # 'catac'
-print(make_palindrome('cata'))  # 'catac'
+
+
+
 
 
 

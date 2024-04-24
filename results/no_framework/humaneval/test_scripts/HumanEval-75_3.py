@@ -20,7 +20,7 @@ def is_multiply_prime(a):
     return prime_count == 3
 
 # Test
-print(is_multiply_prime(30))  # True
+
 
 def check(candidate):
 

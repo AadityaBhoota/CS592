@@ -8,10 +8,10 @@ def largest_smallest_integers(lst):
     return (largest_negative, smallest_positive)
 
 # Test cases
-print(largest_smallest_integers([2, 4, 1, 3, 5, 7]))  # Output Tshe purpose of function is to find the largest negative integer and smallest positive integer in a given input list. To implement this, we first create two separate lists: one containing all negative integers and the other containing all positive integers from the input list. Then, we find the largest negative integer and the smallest positive integer using the max and min functions, respectively. If there are no negative or positive integers, we return None for that category.
+
 s: (None, 1)
-print(largest_smallest_integers([]))  # Output: (None, None)
-print(largest_smallest_integers([0]))  # Output: (None, None)
+
+
 
 def check(candidate):
 

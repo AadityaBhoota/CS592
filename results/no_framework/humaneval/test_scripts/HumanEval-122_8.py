@@ -9,7 +9,7 @@ def add_elements(arr, k):
 arr = [111, 21, 3, 4000, 5, 6, 7, 8, 9]
 k = 4
 result = add_elements(arr, k)
-print(result)  # Output: 24
+
 
 def check(candidate):
 

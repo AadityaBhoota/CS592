@@ -7,9 +7,9 @@ def fizz_buzz(n: int):
     return count
 
 # Testing the function with the given examples
-print(fizz_buzz(50))  # Output: 0
-print(fizz_buzz(78))  # Output: 2
-print(fizz_buzz(79))  # Output: 3
+
+
+
 
 
 

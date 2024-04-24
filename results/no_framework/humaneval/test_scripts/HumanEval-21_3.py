@@ -15,7 +15,7 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
 
 # Test the function with the provided example
 result = rescale_to_unit([1.0, 2.0, 3.0, 4.0, 5.0])
-print(result)
+
 
 
 

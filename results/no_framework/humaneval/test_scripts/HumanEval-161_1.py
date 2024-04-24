@@ -18,9 +18,9 @@ def solve(s):
     return reversed_string
 
 # Test the examples
-print(solve("1234"))  # "4321"
-print(solve("ab"))    # "AB"
-print(solve("#a@C"))  # "#A@c"
+
+
+
 
 def check(candidate):
 

@@ -13,8 +13,8 @@ def x_or_y(n, x, y):
         return y
 
 # Test cases
-print(x_or_y(7, 34, 12))  # Output: 34
-print(x_or_y(15, 8, 5))    # Output: 5
+
+
 
 def check(candidate):
 

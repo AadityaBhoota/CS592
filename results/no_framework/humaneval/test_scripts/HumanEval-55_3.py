@@ -14,9 +14,9 @@ assert fib(10) == 55
 assert fib(1) == 1
 assert fib(8) == 21
 
-print(fib(10))  # Output: 55
-print(fib(1))   # Output: 1
-print(fib(8))   # Output: 21
+
+
+
 
 
 

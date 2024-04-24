@@ -17,9 +17,9 @@ def fib4(n: int):
     return fib_list[n]
 
 # Test cases
-print(fib4(5))  # Output: 4
-print(fib4(6))  # Output: 8
-print(fib4(7))  # Output: 14
+
+
+
 
 
 

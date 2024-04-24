@@ -10,9 +10,9 @@ def by_length(arr):
     return result
 
 # Test cases
-print(by_length([2, 1, 1, 4, 5, 8, 2, 3]))  # Output: ['Eight', 'Five', 'Four', 'Three', 'Two', 'Two', 'One', 'One']
-print(by_length([]))  # Output: []
-print(by_length([1, -1, 55]))  # Output: ['One']
+
+
+
 
 def check(candidate):
 

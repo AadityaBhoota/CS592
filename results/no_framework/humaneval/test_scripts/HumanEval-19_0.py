@@ -18,7 +18,7 @@ def sort_numbers(numbers: str) -> str:
     return ' '.join(sorted_numbers)
 
 # Testing the function
-print(sort_numbers('three one five'))  # Output: 'one three five'
+
 
 
 

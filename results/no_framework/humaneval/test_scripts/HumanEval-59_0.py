@@ -7,8 +7,8 @@ def largest_prime_factor(n: int):
             i += 1
     return n
 
-print(largest_prime_factor(13195))  # Output: 29
-print(largest_prime_factor(2048))   # Output: 2
+
+
 
 
 

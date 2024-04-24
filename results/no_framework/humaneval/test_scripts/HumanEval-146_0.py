@@ -12,8 +12,8 @@ def specialFilter(nums):
     return count
 
 # Test cases
-print(specialFilter([15, -73, 14, -15]))  # Output: 1
-print(specialFilter([33, -2, -3, 45, 21, 109]))  # Output: 2
+
+
 
 def check(candidate):
 

@@ -9,7 +9,7 @@ def make_a_pile(n):
     return stones_per_level
 
 # Test the function with the example given
-print(make_a_pile(3))  # Output: [3, 5, 7]
+
 
 def check(candidate):
 

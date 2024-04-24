@@ -12,7 +12,7 @@ def rolling_max(numbers: List[int]) -> List[int]:
 
 # Test the function with the example input
 result = rolling_max([1, 2, 3, 2, 3, 4, 2])
-print(result)  # Output: [1, 2, 3, 3, 3, 4, 4]
+
 
 
 

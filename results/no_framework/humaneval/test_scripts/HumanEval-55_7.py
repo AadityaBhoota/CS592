@@ -5,9 +5,9 @@ def fib(n: int) -> int:
         return fib(n-1) + fib(n-2)
 
 # Testing the function with examples
-print(fib(10))  # Output: 55
-print(fib(1))   # Output: 1
-print(fib(8))   # Output: 21
+
+
+
 
 
 

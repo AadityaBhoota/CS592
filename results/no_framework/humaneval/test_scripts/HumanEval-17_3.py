@@ -12,7 +12,7 @@ def parse_music(music_string: str) -> List[int]:
 
 # Testing the function with the provided example
 result = parse_music('o o| .| o| o| .| .| .| .| o o')
-print(result)
+
 
 
 

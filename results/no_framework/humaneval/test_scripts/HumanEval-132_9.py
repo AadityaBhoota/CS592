@@ -9,12 +9,12 @@ def is_nested(string):
     return len(stack) < len(string) and len(stack) > 0
 
 # Test cases
-print(is_nested('[[]]'))  # True
-print(is_nested('[]]]]]]][[[[[]'))  # False
-print(is_nested('[][]'))  # False
-print(is_nested('[]'))  # False
-print(is_nested('[[][]]'))  # True
-print(is_nested('[[]][['))  # True
+
+
+
+
+
+
 
 def check(candidate):
 

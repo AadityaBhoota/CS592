@@ -21,7 +21,7 @@ def do_algebra(operators, operands):
 operators = ['+', '*', '-']
 operands = [2, 3, 4, 5]
 result = do_algebra(operators, operands)
-print(result)
+
 
 def check(candidate):
 
