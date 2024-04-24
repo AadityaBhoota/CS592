@@ -149,7 +149,7 @@ async def main():
         results_dir="./results/no_framework/humaneval/",
         experiment_name="HumanEval (no framework)",
         k=10,
-        load_from_file=True
+        load_from_file=False
     )
 
 if __name__ == "__main__":

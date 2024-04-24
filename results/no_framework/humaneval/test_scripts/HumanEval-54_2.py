@@ -1,0 +1,24 @@
+def same_chars(s0: str, s1: str) -> bool:
+    return sorted(s0) == sorted(s1)
+
+# Running the doctests
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
+
+
+
+METADATA = {}
+
+
+def check(candidate):
+    assert candidate('eabcdzzzz', 'dddzzzzzzzddeddabc') == True
+    assert candidate('abcd', 'dddddddabc') == True
+    assert candidate('dddddddabc', 'abcd') == True
+    assert candidate('eabcd', 'dddddddabc') == False
+    assert candidate('abcd', 'dddddddabcf') == False
+    assert candidate('eabcdzzzz', 'dddzzzzzzzddddabc') == False
+    assert candidate('aabb', 'aaccc') == False
+
+
+check(same_chars)
