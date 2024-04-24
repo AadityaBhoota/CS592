@@ -263,8 +263,8 @@ async def main():
     #                              main_plan_redo_prompt, main_code_gen_prompt, main_code_eval_prompt,
     #                              main_code_redo_prompt, main_final_prompt))
 
-    batch_size = 5
-    with open(os.path.join(results_dir, "_sols.json"), "a") as f:
+    batch_size = 20
+    with open(os.path.join(results_dir, "_sols05.json"), "a") as f:
         for i in range(0, len(dataset), batch_size):
             curr_prompts = prompts[i:i+batch_size]
             curr_runs = [self_correct(model, problem_prompt, main_system_prompt, main_planning_prompt, main_plan_eval_prompt,
