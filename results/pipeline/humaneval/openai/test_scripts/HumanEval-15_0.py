@@ -1,0 +1,23 @@
+def string_sequence(n: int) -> str:
+    seq = "0"  # Step 1: Initialize the sequence string starting from 0
+    
+    # Step 2: Loop through numbers from 1 to n inclusive
+    for i in range(1, n + 1):
+        seq += " " + str(i)  # Append each number with a space delimiter
+    
+    return seq  # Step 3: Return the final sequence string
+
+
+
+METADATA = {
+    'author': 'jt',
+    'dataset': 'test'
+}
+
+
+def check(candidate):
+    assert candidate(0) == '0'
+    assert candidate(3) == '0 1 2 3'
+    assert candidate(10) == '0 1 2 3 4 5 6 7 8 9 10'
+
+check(string_sequence)

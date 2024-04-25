@@ -10,7 +10,7 @@ import backoff
 import openai
 import json
 import anthropic
-from dataset import load_dataset, load_humaneval_dataset, load_mbpp_sanitized_dataset
+from dataset import load_humaneval_dataset, load_mbpp_sanitized_dataset
 load_dotenv()
 
 nltk.download('vader_lexicon')

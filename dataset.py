@@ -4,19 +4,7 @@ import re
 from typing import Dict, List
 
 # TODO this is very messay and jank
-# it does not reflect all the data we have
 
-
-# In each dict, HumanEval contains ['task_id', 'prompt', 'entry_point', 'canonical_solution', 'test']
-# In each dict, mbpp contains ['text', 'code', 'task_id', 'test_setup_code', 'test_list', 'challenge_test_list']
-def load_dataset(filepath: str) -> List[Dict]:
-    with open(filepath, "r") as f:
-        if filepath.endswith(".jsonl"):
-            json_lines = list(f)
-            dataset = list(map(json.loads, json_lines))
-        else:
-            dataset = json.load(f)
-    return dataset
 
 def load_humaneval_dataset(filepath: str) -> List[Dict]:
     """
