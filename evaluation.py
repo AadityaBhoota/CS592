@@ -172,8 +172,8 @@ async def experiment(dataset, results_dir: str, experiment_name: str, model: str
     
     
 async def main():
-    dataset_name = "humaneval"
-    model = "openai"
+    dataset_name = "mbpp"
+    model = "anthropic"
     use_framework = True
 
     print("Loading dataset...")

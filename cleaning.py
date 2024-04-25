@@ -52,7 +52,7 @@ def clean_code_solution(code_sol: str) -> str:
         clean_code_sol = code_sol
 
     # ensure newlines are correct
-    clean_code_sol = clean_code_sol.replace("\\n", "\n")
+    # clean_code_sol = clean_code_sol.replace("\\n", "\n")
     # remove outer level print statements
     clean_code_sol = re.sub(r"\nprint(.)*", "\n", clean_code_sol)
     return clean_code_sol

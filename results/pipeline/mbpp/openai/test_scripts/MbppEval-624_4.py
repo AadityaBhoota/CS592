@@ -1,0 +1,12 @@
+def is_upper(string):
+    if string.isupper():
+        return string
+    else:
+        return string.upper()
+
+def check(candidate):
+    assert is_upper("person") =="PERSON"
+    assert is_upper("final") == "FINAL"
+    assert is_upper("Valid") == "VALID"
+
+check(is_upper)

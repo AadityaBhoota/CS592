@@ -1,0 +1,24 @@
+def count_bidirectional(test_list):
+    """
+    Write a function to count bidirectional tuple pairs.
+
+    Examples:
+    count_bidirectional([(5, 6), (1, 2), (6, 5), (9, 1), (6, 5), (2, 1)]) == '3'
+    count_bidirectional([(5, 6), (1, 3), (6, 5), (9, 1), (6, 5), (2, 1)]) == '2'
+    count_bidirectional([(5, 6), (1, 2), (6, 5), (9, 2), (6, 5), (2, 1)]) == '4'
+    """
+    bidirectional_count = {}
+
+    for pair in test_list:
+        reverse_pair = (pair[1], pair[0])
+        if reverse_pair in test_list:
+            bidirectional_count[tuple(sorted(pair))] = bidirectional_count.get(tuple(sorted(pair)), 0) + 1
+
+    return str(sum(bidirectional_count.values()))
+
+def check(candidate):
+    assert count_bidirectional([(5, 6), (1, 2), (6, 5), (9, 1), (6, 5), (2, 1)] ) == 3
+    assert count_bidirectional([(5, 6), (1, 3), (6, 5), (9, 1), (6, 5), (2, 1)] ) == 2
+    assert count_bidirectional([(5, 6), (1, 2), (6, 5), (9, 2), (6, 5), (2, 1)] ) == 4
+
+check(count_bidirectional)
