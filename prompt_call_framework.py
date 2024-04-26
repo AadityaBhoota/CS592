@@ -26,7 +26,7 @@ main_plan_redo_prompt = "Okay. Re-plan it."
 main_code_gen_prompt = "Good. Now implement step [[step]]."
 main_code_eval_prompt = "Are you sure this implements step [[step]] correctly?"
 main_code_redo_prompt = "Okay. Re-implement step [[step]]."
-main_final_prompt = "Good. Now return correct code. Only return code."
+main_final_prompt = "Good. Now return the final correct code. Only return code."
 
 
 @backoff.on_exception(backoff.expo, openai.RateLimitError)
@@ -87,7 +87,7 @@ async def full_code_generation(model, plan, problem, full_code_generation_prompt
     return plan
 
 
-async def planning_update(model, messages, system_prompt, plan_eval_prompt, plan_redo_prompt, max_iterations=3):
+async def planning_update(model, messages, system_prompt, plan_eval_prompt, plan_redo_prompt, max_iterations=1):
     final_plan = messages[-1]["content"]
     num_iterations = 0
     while num_iterations < max_iterations:
@@ -136,18 +136,22 @@ def parse_planning_response(planning_response):
 
 
 def is_positive(string):
-    scores = sia.polarity_scores(string)
-    if scores['pos'] > scores['neg'] or scores['neu'] > scores['neg']:
+    # scores = sia.polarity_scores(string)
+    # if scores['compound'] > 0.2:
+    #     return True
+    # else:
+    #     return False
+    if "Yes" in string or "yes" in string:
         return True
     else:
         return False
 
 
 # code = await refining_stage(model, messages, planning_steps, code_gen_prompt, code_eval_prompt, code_redo_prompt, max_iterations)
-async def refining_stage(model, messages, system_prompt, planning_steps, code_gen_prompt, code_eval_prompt, code_redo_prompt, final_prompt, max_iterations=3):
+async def refining_stage(model, messages, system_prompt, planning_steps, code_gen_prompt, code_eval_prompt, code_redo_prompt, final_prompt, max_iterations=4):
     for index, planning_step in enumerate(planning_steps):
         # Code generation step
-        code_generation_prompt = code_gen_prompt.replace("[[step]]", str(index))
+        code_generation_prompt = code_gen_prompt.replace("[[step]]", str(index + 1))
         messages.append({"role": "user", "content": code_generation_prompt})
         if model == "openai":
             response = await prompt_openai(system_prompt, messages)
@@ -160,7 +164,7 @@ async def refining_stage(model, messages, system_prompt, planning_steps, code_ge
         num_iterations = 0
         while num_iterations < max_iterations:
             # Code checking step
-            code_checking_prompt = code_eval_prompt.replace("[[step]]", str(index))
+            code_checking_prompt = code_eval_prompt.replace("[[step]]", str(index + 1))
             messages.append({"role": "user", "content": code_checking_prompt})
             if model == "openai":
                 response = await prompt_openai(system_prompt, messages)
@@ -173,8 +177,8 @@ async def refining_stage(model, messages, system_prompt, planning_steps, code_ge
             if is_positive(code_check_result):
                 break
             else:
-                code_redo_prompt = code_redo_prompt.replace("[[step]]", str(index))
-                messages.append({"role": "user", "content": code_redo_prompt})
+                code_regen_prompt = code_redo_prompt.replace("[[step]]", str(index + 1))
+                messages.append({"role": "user", "content": code_regen_prompt})
                 if model == "openai":
                     response = await prompt_openai(system_prompt, messages)
                     code_redo = response.choices[0].message.content
@@ -268,21 +272,21 @@ async def run_once(task_id, file_path, semaphore, model, problem_prompt, main_sy
 
 async def main():
     model = "openai"
-    # dataset = load_humaneval_dataset("./data/HumanEval.jsonl")
-    dataset = load_mbpp_sanitized_dataset("./data/mbpp-sanitized-examples.json")
-    results_dir = "./results/pipeline/mbpp/"
+    dataset = load_humaneval_dataset("./data/HumanEval.jsonl")
+    # dataset = load_mbpp_sanitized_dataset("./data/mbpp-sanitized-examples.json")
+    results_dir = "./results/pipeline/"
 
-    for j in range(1, 6):
-        batch_size = 40
+    for j in range(1, 2):
+        batch_size = 50
         runs = []
         semaphore = asyncio.Semaphore(batch_size)
         previous_json = {}
-        with open(os.path.join(results_dir, f"openai_sols0{j}.json"), "r") as file:
+        with open(os.path.join(results_dir, f"openai_full_messages.json"), "r") as file:
             previous_json = json.load(file)
         for task in dataset:
             if task["task_id"] in previous_json.keys():
                 continue
-            runs.append(run_once(task["task_id"], os.path.join(results_dir, f"openai_sols0{j}.json"), semaphore, model, task["prompt"], main_system_prompt, main_planning_prompt, main_plan_eval_prompt,
+            runs.append(run_once(task["task_id"], os.path.join(results_dir, f"openai_full_messages.json"), semaphore, model, task["prompt"], main_system_prompt, main_planning_prompt, main_plan_eval_prompt,
                                      main_plan_redo_prompt, main_code_gen_prompt, main_code_eval_prompt,
                                      main_code_redo_prompt, main_final_prompt))
 
