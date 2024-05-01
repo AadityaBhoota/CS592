@@ -136,12 +136,8 @@ def parse_planning_response(planning_response):
 
 
 def is_positive(string):
-    # scores = sia.polarity_scores(string)
-    # if scores['compound'] > 0.2:
-    #     return True
-    # else:
-    #     return False
-    if "Yes" in string or "yes" in string:
+    scores = sia.polarity_scores(string)
+    if scores['compound'] > 0.2:
         return True
     else:
         return False
